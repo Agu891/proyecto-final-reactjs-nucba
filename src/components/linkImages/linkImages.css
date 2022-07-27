@@ -1,0 +1,236 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Hurricane&family=Lobster&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Hurricane&family=Lobster&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Permanent+Marker&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Hurricane&family=Lobster&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Orbitron:wght@400;500;600;700&family=Permanent+Marker&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Hurricane&family=Lobster&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Orbitron:wght@400;500;600;700&family=Permanent+Marker&family=Tiro+Devanagari+Hindi:ital@1&display=swap");
+:root {
+  --fontfamily: "Montserrat", sans-serif;
+  --margingral: 15px;
+  --fontfamily2: "Permanent Marker", cursive;
+  --fontfamilyH1: "Orbitron", sans-serif;
+  --fontfamilydestacados: "Tiro Devanagari Hindi", serif;
+}
+
+.seccion1Box {
+  padding-top: 15px;
+  padding-left: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.seccion1Box .boxgralseccion2 {
+  -ms-scroll-snap-type: x mandatory;
+  scroll-snap-type: x mandatory;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: auto;
+  gap: 25px;
+}
+
+.seccion1Box .boxgralseccion2 #box1seccion2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  scroll-snap-align: start;
+  border-radius: 10px;
+  background-image: url(./img/motherboard2.jpg);
+  background-position: center;
+  background-size: 350%;
+  min-width: 200px;
+  width: 250px;
+  height: 250px;
+  -webkit-transition: 500ms;
+  transition: 500ms;
+  cursor: pointer;
+}
+
+.seccion1Box .boxgralseccion2 #box1seccion2 .titulos {
+  font-family: var(--fontfamily);
+  text-transform: uppercase;
+  font-size: 1rem;
+  color: white;
+  text-align: start;
+  border-radius: 20px;
+  font-weight: 600;
+  padding: var(--margingral);
+  margin-bottom: 15px;
+}
+
+.seccion1Box .boxgralseccion2 #box1seccion2:hover {
+  background-size: 400%;
+}
+
+.seccion1Box .boxgralseccion2 p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: var(--fontfamily);
+  font-size: 0.9rem;
+  color: white;
+  text-align: start;
+  font-weight: 400;
+  -webkit-backdrop-filter: brightness(30%);
+  backdrop-filter: brightness(30%);
+}
+
+.seccion1Box .boxgralseccion2 #box2seccion2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  scroll-snap-align: start;
+  border-radius: 10px;
+  background-image: url(./img/mejores-memorias-ram.jpg);
+  background-position: center;
+  background-size: 300%;
+  min-width: 200px;
+  width: 250px;
+  height: 250px;
+  -webkit-transition: 500ms;
+  transition: 500ms;
+  cursor: pointer;
+}
+
+.seccion1Box .boxgralseccion2 #box2seccion2 .titulos {
+  font-family: var(--fontfamily);
+  text-transform: uppercase;
+  font-size: 1rem;
+  color: white;
+  text-align: start;
+  font-weight: 600;
+  padding: var(--margingral);
+}
+
+.seccion1Box .boxgralseccion2 #box2seccion2 p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: var(--fontfamily);
+  font-size: 0.9rem;
+  color: white;
+  text-align: start;
+  font-weight: 400;
+}
+
+.seccion1Box .boxgralseccion2 #box2seccion2:hover {
+  background-size: 400%;
+}
+
+.seccion1Box .boxgralseccion2 #box3seccion2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  scroll-snap-align: start;
+  border-radius: 10px;
+  background-image: url(./img/video3.jpg);
+  background-position: center;
+  background-size: 300%;
+  min-width: 200px;
+  width: 250px;
+  height: 250px;
+  -webkit-transition: 500ms;
+  transition: 500ms;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  cursor: pointer;
+}
+
+.seccion1Box .boxgralseccion2 #box3seccion2 .titulos {
+  font-family: var(--fontfamily);
+  text-transform: uppercase;
+  font-size: 1rem;
+  color: white;
+  text-align: start;
+  font-weight: 600;
+  padding: var(--margingral);
+}
+
+.seccion1Box .boxgralseccion2 #box3seccion2 p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: var(--fontfamily);
+  font-size: 0.9rem;
+  color: white;
+  text-align: start;
+  font-weight: 400;
+}
+
+.seccion1Box .boxgralseccion2 #box3seccion2:hover {
+  background-size: 400%;
+}
+
+.seccion1Box .boxgralseccion2 #box4seccion2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  scroll-snap-align: start;
+  border-radius: 10px;
+  background-image: url(./img/procesadores.jpg);
+  background-position: center;
+  background-size: 300%;
+  min-width: 200px;
+  width: 250px;
+  height: 250px;
+  -webkit-transition: 500ms;
+  transition: 500ms;
+  cursor: pointer;
+}
+
+.seccion1Box .boxgralseccion2 #box4seccion2 .titulos {
+  font-family: var(--fontfamily);
+  text-transform: uppercase;
+  font-size: 1rem;
+  color: white;
+  text-align: start;
+  font-weight: 600;
+  padding: var(--margingral);
+}
+
+.seccion1Box .boxgralseccion2 #box4seccion2 p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: var(--fontfamily);
+  font-size: 0.9rem;
+  color: white;
+  text-align: start;
+  font-weight: 400;
+}
+
+.seccion1Box .boxgralseccion2 #box4seccion2:hover {
+  background-size: 400%;
+}

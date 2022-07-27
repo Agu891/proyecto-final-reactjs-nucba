@@ -36,3 +36,107 @@
     transform: rotate(360deg);
   }
 }
+
+@media screen and (min-width: 769px) {
+  .logo {
+    display: none;
+  }
+  #navBar {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+  #navBar #carrito {
+    padding-right: 30px;
+  }
+  #menuToggle #menu {
+    -webkit-transform: none;
+    transform: none;
+    position: fixed;
+    padding-bottom: 390px;
+    margin-top: 350px;
+    -webkit-transform-origin: none;
+    transform-origin: none;
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+    margin-left: 60px;
+  }
+  #menuToggle #menu #logoQuery {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    font-family: var(--fontfamilyH1);
+    margin-bottom: 100%;
+    font-size: 1.5rem;
+  }
+  .boxportada {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-left: 175px;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  .seccion1Box {
+    margin-left: 175px;
+  }
+  #seccion2 {
+    margin-left: 175px;
+  }
+  #boxLogos {
+    margin-left: 175px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+  #nuestrasMarcas {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (minmax(250px, 1fr)) [auto-fit];
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    -ms-grid-rows: 1fr;
+    grid-template-rows: 1fr;
+    gap: 1rem;
+    width: 50%;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin-top: 15px;
+  }
+  #seccionInfo {
+    margin-left: 175px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+  }
+  footer {
+    margin-left: 175px;
+  }
+  .boxgralseccion2 {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  #boxLogos {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+  #total ul.animate {
+    -webkit-transform: translate(8%, 6%);
+    transform: translate(8%, 6%);
+  }
+}
