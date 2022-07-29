@@ -12,18 +12,21 @@ export const productos = [
     img: '/img/Tarjetas de video/rtx 3090.jpg',
     seccion: 'Tarjetas de video',
     precio: 300000,
+    id: 1,
   },
   {
     nombre: 'RTX 3080ti',
     img: '/img/Tarjetas de video/rtx 3080ti.jpg',
     seccion: 'Tarjetas de video',
     precio: 250000,
+    id: 2,
   },
   {
     nombre: 'RTX 3080',
     img: '/img/Tarjetas de video/rtx 3080.jpg',
     seccion: 'Tarjetas de video',
     precio: 200000,
+    id: 3,
   },
   {
     nombre: 'rx 6700 xt',

@@ -6,7 +6,7 @@ import {
   faCartShopping,
 } from '@fortawesome/free-solid-svg-icons';
 
-const Navbar = () => {
+const Navbar = ({ cartItems }) => {
   return (
     <>
       <nav id="navBar">
@@ -78,6 +78,7 @@ const Navbar = () => {
             size="xl"
             color="white"
           />
+          {cartItems.length === 0 ? '' : <span>{cartItems.length}</span>}
 
           <div id="total"></div>
         </div>

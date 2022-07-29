@@ -6,18 +6,19 @@ import Footer from './components/Footer/Footer';
 import Marcas from './components/Marcas/Marcas';
 import SeccionVentas from './components/seccionVentas/SeccionVentas';
 import Carrito from './components/Carrito/Carrito';
+import { useCartItem } from './hooks/useItems';
 
 function App() {
+  const productos = useCartItem();
   return (
     <>
       <header>
-        <Navbar />
-        <Carrito />
+        <Navbar {...productos} />
         <Portada />
       </header>
-
+      <Carrito {...productos} />
       <LinkImages />
-      <SeccionVentas />
+      <SeccionVentas {...productos} />
       <Marcas />
       <Footer />
     </>
