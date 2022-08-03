@@ -5,8 +5,13 @@ import {
   faAngleRight,
   faCartShopping,
 } from '@fortawesome/free-solid-svg-icons';
-
+import { useDispatch } from 'react-redux';
+import * as cartActions from '../../redux/cart/cart-actions';
 const Navbar = ({ cartItems }) => {
+  const dispatch = useDispatch();
+  const handlerToggle = () => {
+    dispatch(cartActions.toggleCartHidden());
+  };
   return (
     <>
       <nav id="navBar">
@@ -21,34 +26,32 @@ const Navbar = ({ cartItems }) => {
             <li className="menu__item">
               <a href="./index.html">Inicio</a>
             </li>
-            <li className="menu__item" onclick="mostrarMonitores()">
+            <li className="menu__item">
               <a href="#box4seccion2">Monitores</a>
             </li>
-            <li className="menu__item" onclick="volverDestacados()">
+            <li className="menu__item">
               <a href="#box4seccion2">Destacados y Ofertas</a>
             </li>
             <li className="menu__item" id="componentes">
               <input type="checkbox" id="checkboxComponentes" /> Componentes{' '}
               <FontAwesomeIcon id="flechita" icon={faAngleRight} />
               <ul>
-                <li onclick="mostrarGpus()">
+                <li>
                   <a href="#box4seccion2">GPUs</a>
                 </li>
-                <li onclick="mostrarMemorias()">
-                  {' '}
+                <li>
                   <a href="#box4seccion2">Memorias Ram</a>{' '}
                 </li>
-                <li onclick="mostrarProcesadores()">
+                <li>
                   <a href="#box4seccion2">Procesadores</a>
                 </li>
-                <li onclick="mostrarMothers()">
-                  {' '}
+                <li>
                   <a href="#box4seccion2">Motherboards</a>
                 </li>
-                <li onclick="mostrarFuentes()">
+                <li>
                   <a href="#box4seccion2">Fuentes</a>
                 </li>
-                <li onclick="mostrarGabinetes()">
+                <li>
                   <a href="#box4seccion2">Gabinetes</a>
                 </li>
               </ul>
@@ -74,9 +77,9 @@ const Navbar = ({ cartItems }) => {
           <FontAwesomeIcon
             icon={faCartShopping}
             id="imgCarrito"
-            onclick="seeShoppingCart()"
             size="xl"
             color="white"
+            onClick={handlerToggle}
           />
           {cartItems.length === 0 ? '' : <span>{cartItems.length}</span>}
 

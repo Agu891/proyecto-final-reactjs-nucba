@@ -18,16 +18,18 @@
   right: 0px;
   top: 93px;
   height: calc(100% - 93px);
-  width: 400px;
+  width: 100vw;
+  max-width: 400px;
   background-color: aliceblue;
   z-index: 4;
   box-shadow: 2px 2px 2px 3px gray;
-  transform: scaleX(1);
-  transition: 200ms;
+  transform: translateX(100%);
+  transition-property: transform;
+  transition-duration: 0.5s;
 }
 
 .openCarrito {
-  transform: scalex(2);
+  transform: translatex(0);
 }
 
 .wrapperCarrito button {
@@ -63,6 +65,7 @@
   align-items: center;
   font-family: var(--fontfamily);
   font-weight: 500;
+  font-size: 0.8rem;
 }
 .wrapperCarrito .contenedorItems .items img {
   width: 120px;

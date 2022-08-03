@@ -1,9 +1,12 @@
 import React from 'react';
 
 import './seccionVentas.css';
-import { items, formatPrice } from '../../data/data';
+import { formatPrice } from '../../data/data';
+
+import { useSelector } from 'react-redux';
 
 const SeccionVentas = ({ cartItems, setCartItems }) => {
+  const items = useSelector((state) => state.products.items);
   return (
     <>
       {Object.entries(items).map(([seccionName, items]) => {
@@ -17,7 +20,7 @@ const SeccionVentas = ({ cartItems, setCartItems }) => {
                 {items.map((item) => (
                   <>
                     <div className="cardWrapper">
-                      <div class="imgWrapper">
+                      <div className="imgWrapper">
                         <img src={item.img} alt="" />
                       </div>
                       <div className="textWrapper">

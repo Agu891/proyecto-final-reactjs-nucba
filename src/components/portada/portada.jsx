@@ -2,8 +2,8 @@ import React from 'react';
 import './portada.css';
 const Portada = () => {
   return (
-    <div class="boxportada">
-      <div class="boxtitulo">
+    <div className="boxportada">
+      <div className="boxtitulo">
         <h2 id="h2Principal">
           Sumate a la <span> masterrace</span>
         </h2>

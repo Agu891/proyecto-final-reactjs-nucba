@@ -3,12 +3,14 @@ import './carrito.css';
 import { formatPrice } from '../../data/data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { useSelector } from 'react-redux';
+
 const Carrito = ({ cartItems, setCartItems }) => {
-  console.log(cartItems);
+  const hidden = useSelector((state) => state.cart.hidden);
 
   return (
     <>
-      <div className="wrapperCarrito">
+      <div className={hidden ? 'wrapperCarrito' : 'wrapperCarrito openCarrito'}>
         {cartItems.length === 0 ? (
           <p>El carrito esta vacio</p>
         ) : (
