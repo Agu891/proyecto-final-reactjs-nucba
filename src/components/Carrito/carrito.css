@@ -16,7 +16,7 @@
   flex-direction: column;
   position: fixed;
   right: 0px;
-  top: 103px;
+  top: 10%;
   height: calc(100% - 93px);
   width: 100vw;
   max-width: 400px;
