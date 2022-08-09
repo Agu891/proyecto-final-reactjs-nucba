@@ -1,12 +1,39 @@
-//funcion   de formateo de precios
-export const formatPrice = (price) => {
-  return new Intl.NumberFormat('es-AR', {
-    style: 'currency',
-    currency: 'ARS',
-  }).format(price);
-};
-
 export const productos = [
+  {
+    nombre: 'RTX 3090',
+    img: '/img/Tarjetas de video/rtx 3090.jpg',
+    seccion: 'Destacados',
+    precio: 300000,
+    id: 1,
+  },
+  {
+    nombre: 'RTX 3080ti',
+    img: '/img/Tarjetas de video/rtx 3080ti.jpg',
+    seccion: 'Destacados',
+    precio: 250000,
+    id: 2,
+  },
+  {
+    nombre: 'ASUS crosshair dark hero VIII',
+    img: '/img/Mothers/ASUS crosshair dark hero VIII.jpg',
+    seccion: 'Destacados',
+    precio: 120000,
+    id: 11,
+  },
+  {
+    nombre: 'Gskill trident z royal',
+    img: '/img/RAMs/Gskill trident z royal.jpg',
+    seccion: 'Destacados',
+    precio: 85000,
+    id: 8,
+  },
+  {
+    nombre: 'Hyperx Fury 8gb',
+    img: '/img/RAMs/Hyperx Fury 8gb.jpg',
+    seccion: 'Destacados',
+    precio: 60000,
+    id: 9,
+  },
   {
     nombre: 'RTX 3090',
     img: '/img/Tarjetas de video/rtx 3090.jpg',

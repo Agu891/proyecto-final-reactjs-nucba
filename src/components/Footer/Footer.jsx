@@ -1,22 +1,27 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faPhone,
   faAt,
   faLocationDot,
   faMobilePhone,
-} from "@fortawesome/free-solid-svg-icons";
+} from '@fortawesome/free-solid-svg-icons';
 
-import "./footer.css";
+import './footer.css';
+import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
     <footer>
       <div id="footerDiv">
         <div>
-          <a href="./index.html">Inicio</a>
+          <Link to="/">
+            <p>Inicio</p>
+          </Link>
           <a href="">Quienes somos</a>
           <a href="">Preguntas Frecuentes</a>
-          <a href="">Contacto</a>
+          <Link to="/contacto">
+            <p>Contacto</p>
+          </Link>
         </div>
         <div>
           <img src="" alt="" />

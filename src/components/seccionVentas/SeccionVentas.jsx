@@ -1,12 +1,17 @@
 import React from 'react';
-
 import './seccionVentas.css';
-import { formatPrice } from '../../data/data';
-
+import { formatPrice } from '../../utils/formatPrice';
 import { useSelector } from 'react-redux';
 
-const SeccionVentas = ({ cartItems, setCartItems }) => {
-  const items = useSelector((state) => state.products.items);
+const SeccionVentas = ({ cartItems, setCartItems, section, setSection }) => {
+  const porcentajeRecargoCredito = (numero) => {
+    return (numero * 15) / 100 + numero;
+  };
+
+  let items = useSelector((state) => state.products.items);
+  if (section) {
+    items = { [section]: items[section] };
+  }
   return (
     <>
       {Object.entries(items).map(([seccionName, items]) => {
@@ -28,8 +33,14 @@ const SeccionVentas = ({ cartItems, setCartItems }) => {
 
                         <p>{formatPrice(item.precio)}</p>
                         <span>
-                          <b>12</b> cuotas sin intereses de
-                          <b>{formatPrice(parseInt(item.precio / 12))}</b>
+                          o <b>12</b> cuotas sin intereses de
+                          <b>
+                            {formatPrice(
+                              parseInt(
+                                porcentajeRecargoCredito(item.precio) / 12
+                              )
+                            )}
+                          </b>
                         </span>
                         <button
                           onClick={() => setCartItems([...cartItems, item])}
@@ -41,6 +52,11 @@ const SeccionVentas = ({ cartItems, setCartItems }) => {
                   </>
                 ))}
               </div>
+              {section && (
+                <button className="btnTodos" onClick={() => setSection(null)}>
+                  Ver todos los productos
+                </button>
+              )}
             </section>
             ;
           </>

@@ -1,10 +1,13 @@
 import React from 'react';
 import './headerSimple.css';
+import { Link } from 'react-router-dom';
 const HeaderSimple = () => {
   return (
-    <nav id="navBar">
+    <nav id="navBarSimple">
       <div className="logo">
-        <h1>PcGeeks</h1>
+        <Link to="/">
+          <h1>PcGeeks</h1>
+        </Link>
       </div>
     </nav>
   );

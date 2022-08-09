@@ -1,4 +1,4 @@
-import { TOGGLE_CART_HIDDEN } from './cart-actions';
+import { TOGGLE_CART_HIDDEN, ADD_ITEM } from './cart-actions';
 
 const INITIAL_STATE = {
   hidden: true,
@@ -11,6 +11,7 @@ const cartReducer = (state = INITIAL_STATE, action) => {
         ...state,
         hidden: !state.hidden,
       };
+
     default:
       return state;
   }

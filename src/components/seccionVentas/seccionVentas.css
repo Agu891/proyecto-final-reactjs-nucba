@@ -8,6 +8,17 @@
   border-radius: 15px 0 0 0;
   padding-left: 2%;
 }
+.btnTodos {
+  border: none;
+  font-family: var(--fontfamily);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 10px;
+  color: white;
+  margin: 10px 0 0 15px;
+  border-radius: 10px;
+  background-color: blue;
+}
 .wrapperProductos {
   -ms-scroll-snap-type: x mandatory;
   scroll-snap-type: x mandatory;

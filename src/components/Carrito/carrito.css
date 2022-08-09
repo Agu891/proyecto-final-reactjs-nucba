@@ -16,14 +16,14 @@
   flex-direction: column;
   position: fixed;
   right: 0px;
-  top: 93px;
+  top: 103px;
   height: calc(100% - 93px);
   width: 100vw;
   max-width: 400px;
   background-color: aliceblue;
   z-index: 4;
   box-shadow: 2px 2px 2px 3px gray;
-  transform: translateX(100%);
+  transform: translateX(101%);
   transition-property: transform;
   transition-duration: 0.5s;
 }
@@ -60,7 +60,7 @@
 
 .wrapperCarrito .contenedorItems .items {
   display: grid;
-  grid-template-columns: 20px 50px 20px 30px;
+  grid-template-columns: 50px 100px 100px;
   justify-content: space-between;
   align-items: center;
   font-family: var(--fontfamily);

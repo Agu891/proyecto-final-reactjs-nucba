@@ -1,8 +1,7 @@
 import React from 'react';
 import './carrito.css';
-import { formatPrice } from '../../data/data';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { formatPrice } from '../../utils/formatPrice';
+
 import { useSelector } from 'react-redux';
 
 const Carrito = ({ cartItems, setCartItems }) => {
@@ -20,7 +19,6 @@ const Carrito = ({ cartItems, setCartItems }) => {
                 <h3>{item.nombre}</h3>
                 <img src={item.img} alt={item.nombre} />
                 <div>{formatPrice(item.precio)}</div>
-                <FontAwesomeIcon className="trashIcon" icon={faTrashCan} />
               </div>
             </div>
           ))

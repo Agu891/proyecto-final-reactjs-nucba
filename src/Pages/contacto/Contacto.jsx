@@ -1,5 +1,5 @@
 import React from 'react';
-import Footer from '../../components/Footer/Footer';
+
 import HeaderSimple from '../../components/HeaderSimple/HeaderSimple';
 import './contacto.css';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
@@ -33,8 +33,6 @@ const Contacto = () => {
           <input type="submit" value="Enviar" id="btnSubmit" />
         </form>
       </div>
-
-      <Footer />
     </>
   );
 };

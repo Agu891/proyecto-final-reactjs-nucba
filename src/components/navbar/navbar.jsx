@@ -1,5 +1,6 @@
 import React from 'react';
 import './navbar.css';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faAngleRight,
@@ -7,7 +8,12 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch } from 'react-redux';
 import * as cartActions from '../../redux/cart/cart-actions';
-const Navbar = ({ cartItems }) => {
+import { Link } from 'react-router-dom';
+import { auth } from '../../firebase/firebase.util';
+import { useSelector } from 'react-redux';
+
+const Navbar = ({ cartItems, setSection }) => {
+  const currentUser = useSelector((state) => state.user.currentUser);
   const dispatch = useDispatch();
   const handlerToggle = () => {
     dispatch(cartActions.toggleCartHidden());
@@ -22,52 +28,55 @@ const Navbar = ({ cartItems }) => {
           <span></span>
           <ul className="ul1" id="menu">
             <li id="logoQuery">PcGeeks</li>
-            <li id="userName"> </li>
-            <li className="menu__item">
-              <a href="./index.html">Inicio</a>
-            </li>
-            <li className="menu__item">
-              <a href="#box4seccion2">Monitores</a>
-            </li>
-            <li className="menu__item">
-              <a href="#box4seccion2">Destacados y Ofertas</a>
+
+            {currentUser ? (
+              <>
+                <li id="userName">
+                  {' '}
+                  Bienvenido,{' '}
+                  {currentUser.displayName
+                    ? currentUser.displayName
+                    : currentUser.email}
+                </li>
+                <li onClick={() => auth.signOut()} className="menu__item">
+                  Logout
+                </li>
+              </>
+            ) : (
+              <>
+                <Link to="/login">
+                  <li className="menu__item" id="registrarse">
+                    Iniciar Sesion
+                  </li>
+                </Link>
+                <Link to="/register">
+                  <li className="menu__item" id="iniciarSesion">
+                    Registrarse
+                  </li>
+                </Link>{' '}
+              </>
+            )}
+            <li className="menu__item">Inicio</li>
+            <li className="menu__item">Monitores</li>
+            <li className="menu__item" onClick={() => setSection('Destacados')}>
+              Destacados y Ofertas
             </li>
             <li className="menu__item" id="componentes">
-              <input type="checkbox" id="checkboxComponentes" /> Componentes{' '}
+              <input type="checkbox" id="checkboxComponentes" /> Componentes
               <FontAwesomeIcon id="flechita" icon={faAngleRight} />
               <ul>
-                <li>
-                  <a href="#box4seccion2">GPUs</a>
-                </li>
-                <li>
-                  <a href="#box4seccion2">Memorias Ram</a>{' '}
-                </li>
-                <li>
-                  <a href="#box4seccion2">Procesadores</a>
-                </li>
-                <li>
-                  <a href="#box4seccion2">Motherboards</a>
-                </li>
-                <li>
-                  <a href="#box4seccion2">Fuentes</a>
-                </li>
-                <li>
-                  <a href="#box4seccion2">Gabinetes</a>
-                </li>
+                <li onClick={() => setSection('Tarjetas de video')}>GPUs</li>
+                <li onClick={() => setSection('Memorias')}>Memorias Ram</li>
+                <li>Procesadores</li>
+                <li onClick={() => setSection('Motherboards')}>Motherboards</li>
+                <li>Fuentes</li>
+                <li>Gabinetes</li>
               </ul>
             </li>
-            <li className="menu__item" id="registrarse">
-              <a href="/Loginpage/login.html">Iniciar Sesion</a>
-            </li>
-            <li className="menu__item" id="iniciarSesion">
-              <a href="register/Registro.html">Registrarse</a>
-            </li>
-            <li className="menu__item">
-              <a href="#contacto">Nosotros</a>
-            </li>
-            <li className="menu__item">
-              <a href="./Contacto/contacto.html">Contacto</a>
-            </li>
+
+            <Link to="/contacto">
+              <li className="menu__item">Contacto</li>
+            </Link>
           </ul>
         </div>
         <div className="logo">
