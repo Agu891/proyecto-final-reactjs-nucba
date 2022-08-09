@@ -57,7 +57,7 @@ const Navbar = ({ cartItems, setSection }) => {
               </>
             )}
             <li className="menu__item">Inicio</li>
-            <li className="menu__item">Monitores</li>
+
             <li className="menu__item" onClick={() => setSection('Destacados')}>
               Destacados y Ofertas
             </li>
@@ -67,10 +67,10 @@ const Navbar = ({ cartItems, setSection }) => {
               <ul>
                 <li onClick={() => setSection('Tarjetas de video')}>GPUs</li>
                 <li onClick={() => setSection('Memorias')}>Memorias Ram</li>
-                <li>Procesadores</li>
+                <li onClick={() => setSection('Procesadores')}>Procesadores</li>
                 <li onClick={() => setSection('Motherboards')}>Motherboards</li>
-                <li>Fuentes</li>
-                <li>Gabinetes</li>
+                <li onClick={() => setSection('Fuentes')}>Fuentes</li>
+                <li onClick={() => setSection('Gabinetes')}>Gabinetes</li>
               </ul>
             </li>
 
