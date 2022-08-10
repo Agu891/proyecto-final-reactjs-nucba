@@ -23,15 +23,15 @@ const Navbar = ({ cartItems, setSection }) => {
       <nav id="navBar">
         <div id="menuToggle">
           <input type="checkbox" id="inputMenu" />
-          <span></span>
-          <span></span>
-          <span></span>
+          <span className="span1"></span>
+          <span className="span2"></span>
+          <span className="span3"></span>
           <ul className="ul1" id="menu">
             <li id="logoQuery">PcGeeks</li>
 
             {currentUser ? (
               <>
-                <li className="userNameContainer">
+                <li className="userNameContainer menu">
                   <p> Bienvenido, </p>
                   <p className="userName">
                     {currentUser.displayName
@@ -52,7 +52,7 @@ const Navbar = ({ cartItems, setSection }) => {
                   <li className="menu__item" id="iniciarSesion">
                     Registrarse
                   </li>
-                </Link>{' '}
+                </Link>
               </>
             )}
             <li className="menu__item">Inicio</li>
@@ -72,7 +72,6 @@ const Navbar = ({ cartItems, setSection }) => {
                 <li onClick={() => setSection('Gabinetes')}>Gabinetes</li>
               </ul>
             </li>
-
             <Link to="/contacto">
               <li className="menu__item">Contacto</li>
             </Link>
@@ -90,8 +89,6 @@ const Navbar = ({ cartItems, setSection }) => {
             onClick={handlerToggle}
           />
           {cartItems.length === 0 ? '' : <span>{cartItems.length}</span>}
-
-          <div id="total"></div>
         </div>
       </nav>
     </>

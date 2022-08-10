@@ -83,6 +83,7 @@ a {
   -ms-user-select: none;
   user-select: none;
   z-index: 2;
+  width: 8%;
 }
 
 #navBar #menuToggle ul li a {
@@ -98,8 +99,7 @@ a {
   width: 40px;
   height: 5vh;
   position: absolute;
-  top: -7px;
-  left: -5px;
+  left: -12px;
   cursor: pointer;
   opacity: 0;
   z-index: 2;
@@ -111,13 +111,58 @@ a {
   transform: none;
 }
 
-#navBar #menuToggle span {
+#navBar #menuToggle .span1 {
   display: block;
   width: 40px;
   height: 3px;
-  margin-top: 5px;
-  /* Ver si lo puedo hacer con una  IMG */
-  position: relative;
+  margin-top: -10px;
+  margin-left: -50%;
+  position: absolute;
+  background: #cdcdcd;
+  border-radius: 3px;
+  z-index: 1;
+  -webkit-transform-origin: 4px 4px;
+  transform-origin: 4px 4px;
+  -webkit-transition: 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease,
+    -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  transition: 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease,
+    -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+    0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+    0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease,
+    -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+
+#navBar #menuToggle .span2 {
+  display: block;
+  width: 40px;
+  height: 3px;
+  margin-top: 7px;
+  margin-left: -50%;
+  position: absolute;
+  background: #cdcdcd;
+  border-radius: 3px;
+  z-index: 1;
+  -webkit-transform-origin: 4px 4px;
+  transform-origin: 4px 4px;
+  -webkit-transition: 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease,
+    -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  transition: 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease,
+    -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+    0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+    0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease,
+    -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+#navBar #menuToggle .span3 {
+  display: block;
+  width: 40px;
+  height: 3px;
+  margin-top: 23px;
+  margin-left: -50%;
+  position: absolute;
   background: #cdcdcd;
   border-radius: 3px;
   z-index: 1;
@@ -317,14 +362,14 @@ a {
     -webkit-transform: none;
     transform: none;
     position: fixed;
-    padding-bottom: 360px;
+    padding-bottom: 380px;
     margin-bottom: 97px;
     margin-top: 350px;
     -webkit-transform-origin: none;
     transform-origin: none;
     -webkit-transform: translate(0, 0);
     transform: translate(0, 0);
-    margin-left: 60px;
+    margin-left: -70px;
   }
   #menuToggle #menu #logoQuery {
     display: -webkit-box;
