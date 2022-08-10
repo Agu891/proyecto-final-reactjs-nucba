@@ -27,8 +27,8 @@ const Navbar = ({ cartItems, setSection }) => {
           <span className="span2"></span>
           <span className="span3"></span>
           <ul className="ul1" id="menu">
-            <li id="logoQuery">PcGeeks</li>
-
+            <li className="logoQuery">PcGeeks</li>
+            <li className="menu__item">Inicio</li>
             {currentUser ? (
               <>
                 <li className="userNameContainer menu">
@@ -55,7 +55,6 @@ const Navbar = ({ cartItems, setSection }) => {
                 </Link>
               </>
             )}
-            <li className="menu__item">Inicio</li>
 
             <li className="menu__item" onClick={() => setSection('Destacados')}>
               Destacados y Ofertas

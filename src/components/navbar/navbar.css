@@ -24,6 +24,7 @@ body {
 
 .menu__item {
   cursor: pointer;
+  margin-bottom: 15px;
 }
 
 a {
@@ -48,7 +49,7 @@ a {
   z-index: 2;
 }
 
-#navBar #logoQuery {
+#menuToggle #menu .logoQuery {
   display: none;
 }
 
@@ -84,6 +85,7 @@ a {
   user-select: none;
   z-index: 2;
   width: 8%;
+  height: 5%;
 }
 
 #navBar #menuToggle ul li a {
@@ -371,12 +373,13 @@ a {
     transform: translate(0, 0);
     margin-left: -70px;
   }
-  #menuToggle #menu #logoQuery {
+  #menuToggle #menu .logoQuery {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     font-family: var(--fontfamilyH1);
     margin-bottom: 100%;
+    top: 25px;
     font-size: 1.5rem;
   }
 }
