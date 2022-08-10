@@ -31,20 +31,15 @@ const Navbar = ({ cartItems, setSection }) => {
 
             {currentUser ? (
               <>
-                <li>
-                  {' '}
-                  Bienvenido,{' '}
-                  {currentUser.displayName
-                    ? currentUser.displayName
-                    : currentUser.email}
+                <li className="userNameContainer">
+                  <p> Bienvenido, </p>
+                  <p className="userName">
+                    {currentUser.displayName
+                      ? currentUser.displayName
+                      : currentUser.email}
+                  </p>
                 </li>
-                <li
-                  id="userName"
-                  onClick={() => auth.signOut()}
-                  className="menu__item"
-                >
-                  Logout
-                </li>
+                <li onClick={() => auth.signOut()}>Logout</li>
               </>
             ) : (
               <>

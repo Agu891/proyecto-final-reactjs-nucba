@@ -164,7 +164,8 @@ a {
 }
 
 #navBar #menu {
-  position: absolute;
+  display: flex;
+  flex-direction: column;
   width: 250px;
   padding: 450px 100px 0px 100px;
   background-color: #303030;
@@ -183,6 +184,7 @@ a {
 }
 
 #navBar #menu li {
+  display: flex;
   padding-left: 5px;
   padding-top: 15px;
   font-size: 1rem;
@@ -191,25 +193,37 @@ a {
   font-weight: 600;
   position: relative;
   width: 100%;
+  display: flex;
+  text-overflow: ellipsis;
+}
+#navBar #menu .userNameContainer {
+  overflow: hidden;
+  width: 250%;
+  display: flex;
+  flex-direction: column;
+}
+#navBar #menu .userName {
+  -moz-transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+  width: 200px;
+
+  -moz-animation: my-animation 10s linear infinite;
+  -webkit-animation: my-animation 10s linear infinite;
+  animation: my-animation 10s linear infinite;
 }
 
-#navBar #menu #userName {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  padding-left: 65px;
-  text-align: center;
-  font-family: var(--fontfamilydestacados);
-  font-weight: 400;
-  font-size: 1rem;
-  padding-top: 20px;
+@keyframes my-animation {
+  from {
+    -moz-transform: translateX(90%);
+    -webkit-transform: translateX(90%);
+    transform: translateX(90%);
+  }
+  to {
+    -moz-transform: translateX(-150%);
+    -webkit-transform: translateX(-150%);
+    transform: translateX(-150%);
+  }
 }
 
 #navBar #componentes {
