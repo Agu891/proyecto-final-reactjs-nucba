@@ -5,7 +5,9 @@ import Carrito from '../../components/Carrito/Carrito';
 import Navbar from '../../components/navbar/navbar';
 import Portada from '../../components/portada/portada';
 import LinkImages from '../../components/linkImages/LinkImages';
+
 import './home.css';
+
 const Home = ({ productos, secciones }) => {
   return (
     <>
@@ -16,7 +18,9 @@ const Home = ({ productos, secciones }) => {
         </header>
         <Carrito {...productos} />
         <LinkImages />
+
         <SeccionVentas {...productos} {...secciones} />
+
         <Marcas />
       </div>
     </>

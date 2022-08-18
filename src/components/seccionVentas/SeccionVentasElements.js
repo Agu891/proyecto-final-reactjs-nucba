@@ -1,4 +1,6 @@
-.seccionVentasWrapper {
+import styled from 'styled-components';
+
+export const SeccionVentasWrapper = styled.section`
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
@@ -7,19 +9,13 @@
   background-color: white;
   border-radius: 15px 0 0 0;
   padding-left: 2%;
-}
-.btnTodos {
-  border: none;
-  font-family: var(--fontfamily);
-  font-size: 1rem;
-  font-weight: 600;
-  padding: 10px;
-  color: white;
-  margin: 10px 0 0 15px;
-  border-radius: 10px;
-  background-color: blue;
-}
-.wrapperProductos {
+
+  @media screen and (min-width: 769px) {
+    margin-left: 175px;
+  }
+`;
+
+export const WrapperProductos = styled.div`
   -ms-scroll-snap-type: x mandatory;
   scroll-snap-type: x mandatory;
   display: -webkit-box;
@@ -28,9 +24,8 @@
   -webkit-overflow-scrolling: touch;
   overflow-x: auto;
   gap: 25px;
-}
-
-.cardWrapper {
+`;
+export const CardWrapper = styled.div`
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -46,22 +41,14 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-}
+`;
 
-.imgWrapper {
+export const ImgWrapper = styled.div`
   overflow: hidden;
   width: 70%;
-}
-.imgWrapper img {
-  width: 120%;
-  -ms-flex-item-align: center;
-  -ms-grid-row-align: center;
-  align-self: center;
-  padding-right: 25%;
-  max-height: 300px;
-}
+`;
 
-.textWrapper {
+export const TextWrapper = styled.div`
   padding-left: 5px;
   margin-right: 5px;
   display: -webkit-box;
@@ -73,24 +60,8 @@
   flex-direction: column;
   font-family: var(--fontfamily);
   text-align: center;
-}
-.textWrapper h3 {
-  display: flex;
-  flex-direction: column;
-  font-size: 1rem;
-}
-.textWrapper p {
-  padding-top: 15px;
-  font-weight: 500;
-  color: black;
-}
-
-.textWrapper span {
-  color: blue;
-  width: 100%;
-  padding-top: 5px;
-}
-.textWrapper button {
+`;
+export const BtnAzul = styled.button`
   border: none;
   background-color: blue;
   color: white;
@@ -103,14 +74,8 @@
   transition: 200ms;
   cursor: pointer;
   margin-top: 5px;
-}
-.textWrapper button:active {
-  -webkit-transform: scale(0.9);
-  transform: scale(0.9);
-}
-
-@media screen and (min-width: 769px) {
-  .seccionVentasWrapper {
-    margin-left: 175px;
+  &:active {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
   }
-}
+`;

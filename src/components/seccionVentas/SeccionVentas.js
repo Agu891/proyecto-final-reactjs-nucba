@@ -1,9 +1,19 @@
 import React from 'react';
-import './seccionVentas.css';
+import * as cartActions from '../../redux/cart/cart-actions';
 import { formatPrice } from '../../utils/formatPrice';
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import {
+  SeccionVentasWrapper,
+  WrapperProductos,
+  CardWrapper,
+  ImgWrapper,
+  TextWrapper,
+  BtnAzul,
+} from './SeccionVentasElements';
 
 const SeccionVentas = ({ cartItems, setCartItems, section, setSection }) => {
+  const dispatch = useDispatch();
   const porcentajeRecargoCredito = (numero) => {
     return (numero * 15) / 100 + numero;
   };
@@ -12,23 +22,26 @@ const SeccionVentas = ({ cartItems, setCartItems, section, setSection }) => {
   if (section) {
     items = { [section]: items[section] };
   }
+  const addToCart = (i) => {
+    dispatch(cartActions.addItem(i));
+  };
   return (
     <>
       {Object.entries(items).map(([seccionName, items]) => {
         return (
           <>
-            <section className="seccionVentasWrapper">
+            <SeccionVentasWrapper>
               <div>
                 <h2>{seccionName}</h2>
               </div>
-              <div className="wrapperProductos">
+              <WrapperProductos>
                 {items.map((item) => (
                   <>
-                    <div className="cardWrapper">
-                      <div className="imgWrapper">
-                        <img src={item.img} alt="" />
-                      </div>
-                      <div className="textWrapper">
+                    <CardWrapper>
+                      <ImgWrapper>
+                        <img src={item.img} alt={item.nombre} />
+                      </ImgWrapper>
+                      <TextWrapper>
                         <h3>{item.nombre}</h3>
 
                         <p>{formatPrice(item.precio)}</p>
@@ -42,22 +55,20 @@ const SeccionVentas = ({ cartItems, setCartItems, section, setSection }) => {
                             )}
                           </b>
                         </span>
-                        <button
-                          onClick={() => setCartItems([...cartItems, item])}
-                        >
+                        <BtnAzul onClick={() => addToCart(item)}>
                           Agregar al carrito
-                        </button>
-                      </div>
-                    </div>
+                        </BtnAzul>
+                      </TextWrapper>
+                    </CardWrapper>
                   </>
                 ))}
-              </div>
+              </WrapperProductos>
               {section && (
-                <button className="btnTodos" onClick={() => setSection(null)}>
+                <BtnAzul onClick={() => setSection(null)}>
                   Ver todos los productos
-                </button>
+                </BtnAzul>
               )}
-            </section>
+            </SeccionVentasWrapper>
             ;
           </>
         );
@@ -65,5 +76,4 @@ const SeccionVentas = ({ cartItems, setCartItems, section, setSection }) => {
     </>
   );
 };
-
 export default SeccionVentas;
