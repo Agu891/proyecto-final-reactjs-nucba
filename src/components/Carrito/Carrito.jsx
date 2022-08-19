@@ -4,8 +4,9 @@ import { formatPrice } from '../../utils/formatPrice';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import * as cartActions from '../../redux/cart/cart-actions';
-
+import { useNavigate } from 'react-router-dom';
 const Carrito = () => {
+  const navigate = useNavigate();
   const currentUser = useSelector((state) => state.user.currentUser);
   const dispatch = useDispatch();
   const hidden = useSelector((state) => state.cart.hidden);
@@ -19,6 +20,7 @@ const Carrito = () => {
       alert('Gracias por su compra');
     } else {
       alert('Necesitas crear un usuario para continuar con la compra');
+      navigate('/Register');
     }
   };
   const addToCart = (i) => {
