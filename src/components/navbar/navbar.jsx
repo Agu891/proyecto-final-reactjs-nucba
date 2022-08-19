@@ -12,8 +12,13 @@ import { Link } from 'react-router-dom';
 import { auth } from '../../firebase/firebase.util';
 import { useSelector } from 'react-redux';
 
-const Navbar = ({ cartItems, setSection }) => {
+const Navbar = ({ setSection }) => {
   const currentUser = useSelector((state) => state.user.currentUser);
+  const quantity = useSelector((state) =>
+    state.cart.cartItems.reduce((acc, cartItem) => {
+      return acc + cartItem.quantity;
+    }, 0)
+  );
   const dispatch = useDispatch();
   const handlerToggle = () => {
     dispatch(cartActions.toggleCartHidden());
@@ -87,7 +92,7 @@ const Navbar = ({ cartItems, setSection }) => {
             color="white"
             onClick={handlerToggle}
           />
-          {cartItems.length === 0 ? '' : <span>{cartItems.length}</span>}
+          {quantity === 0 ? '' : <span>{quantity}</span>}
         </div>
       </nav>
     </>

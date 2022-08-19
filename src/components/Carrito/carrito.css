@@ -80,3 +80,14 @@
 .wrapperCarrito .contenedorItems .items .trashIcon {
   cursor: pointer;
 }
+
+.totalPrice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  font-family: var(--fontfamily);
+  border-radius: 5px;
+  background-color: whitesmoke;
+  border: 2px solid grey;
+}

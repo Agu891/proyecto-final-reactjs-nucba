@@ -3,16 +3,20 @@ import useForm from '../../hooks/useForm';
 import Input from '../../components/input/Input';
 import HeaderSimple from '../../components/HeaderSimple/HeaderSimple';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { auth, createUserProfile } from '../../firebase/firebase.util';
+import { auth, createUserProfileDocument } from '../../firebase/firebase.util';
 import './register.css';
+import { useSelector } from 'react-redux';
+
 import {
   VALIDATOR_EMAIL,
   VALIDATOR_MINLENGTH,
   VALIDATOR_REQUIRE,
 } from '../../utils/validators';
 const Register = () => {
+  const currentUser = useSelector((state) => state.user.currentUser);
+  const navigate = useNavigate();
   const [formState, inputHandler] = useForm(
     {
       nombre: {
@@ -38,6 +42,9 @@ const Register = () => {
     },
     false
   );
+  if (currentUser) {
+    navigate('/');
+  }
 
   const handlerSubmit = async (event) => {
     event.preventDefault();
@@ -51,7 +58,7 @@ const Register = () => {
           formState.inputs.password.value
         );
 
-        await createUserProfile(user, {
+        await createUserProfileDocument(user, {
           displayName: formState.inputs.displayName.value,
         });
       } catch (error) {

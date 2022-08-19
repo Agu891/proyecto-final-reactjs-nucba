@@ -8,6 +8,9 @@ const Carrito = () => {
   const dispatch = useDispatch();
   const hidden = useSelector((state) => state.cart.hidden);
   const cartItems = useSelector((state) => state.cart.cartItems);
+  const subTotal = cartItems.reduce((acc, item) => {
+    return acc + item.precio * item.quantity;
+  }, 0);
   const addToCart = (i) => {
     dispatch(cartActions.addItem(i));
   };
@@ -17,7 +20,7 @@ const Carrito = () => {
   return (
     <>
       <div className={hidden ? 'wrapperCarrito' : 'wrapperCarrito openCarrito'}>
-        {cartItems === 0 ? (
+        {cartItems.length === 0 ? (
           <p>El carrito esta vacio</p>
         ) : (
           cartItems.map((item) => (
@@ -40,10 +43,13 @@ const Carrito = () => {
             </div>
           ))
         )}
-        {cartItems >= 1 && (
-          <button className="finalizarBtn" onClick={console.log('graciasS')}>
-            finalizar Compra
-          </button>
+        {cartItems.length >= 1 && (
+          <>
+            <h3 className="totalPrice">Total:{formatPrice(subTotal)}</h3>
+            <button className="finalizarBtn" onClick={console.log('graciass')}>
+              Finalizar compra
+            </button>
+          </>
         )}
       </div>
     </>

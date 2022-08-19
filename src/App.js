@@ -15,12 +15,12 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { useCartItem } from './hooks/useItems';
 import { useSection } from './hooks/useSection';
-import { auth, createUserProfile } from './firebase/firebase.util';
+import { auth, createUserProfileDocument } from './firebase/firebase.util';
 import * as userActions from './redux/user/user-actions';
 function onAuthStateChange(cb, action) {
   auth.onAuthStateChanged(async (userAuth) => {
     if (userAuth) {
-      const userRef = await createUserProfile(userAuth);
+      const userRef = await createUserProfileDocument(userAuth);
       userRef.onSnapshot((snapshot) => {
         cb(action({ id: snapshot.id, ...snapshot.data() }));
       });
