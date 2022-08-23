@@ -1,5 +1,5 @@
 import React from 'react';
-import './login.css';
+
 import useForm from '../../hooks/useForm';
 import Input from '../../components/input/Input';
 import HeaderSimple from '../../components/HeaderSimple/HeaderSimple';
@@ -9,8 +9,15 @@ import { Link, useNavigate } from 'react-router-dom';
 import { VALIDATOR_MINLENGTH, VALIDATOR_REQUIRE } from '../../utils/validators';
 import { auth, signInWithGoogle } from '../../firebase/firebase.util';
 import { useSelector } from 'react-redux';
-
+import Footer from '../../components/Footer/Footer';
 import googleIcon from './google.png';
+import {
+  FormWrapper,
+  InvalidBtn,
+  ValidBtn,
+  WrapperGral,
+  WrapperTexto,
+} from './LoginElements';
 const Login = () => {
   const currentUser = useSelector((state) => state.user.currentUser);
   const navigate = useNavigate();
@@ -44,13 +51,13 @@ const Login = () => {
   return (
     <>
       <HeaderSimple />
-      <form onSubmit={submitHandler} id="form">
-        <div className="boxgral">
+      <FormWrapper onSubmit={submitHandler} id="form">
+        <WrapperGral>
           <p>
             Inicio <FontAwesomeIcon icon={faAngleRight} /> MiCuenta
             <FontAwesomeIcon icon={faAngleRight} /> Login
           </p>
-          <div className="boxtexto">
+          <WrapperTexto>
             <h2>Iniciar Sesión</h2>
 
             <Input
@@ -78,19 +85,18 @@ const Login = () => {
             </Link>
 
             {formState.isValid ? (
-              <button className="validBtn">Iniciar Sesión</button>
+              <ValidBtn>Iniciar Sesión</ValidBtn>
             ) : (
-              <button className="invalidBtn" disabled={true}>
-                Iniciar Sesión
-              </button>
+              <InvalidBtn disabled={true}>Iniciar Sesión</InvalidBtn>
             )}
-            <button onClick={signInWithGoogle} className="validBtn">
-              <img src={googleIcon} alt="icono google" />
+            <ValidBtn onClick={signInWithGoogle}>
               Iniciar Sesión con Google
-            </button>
-          </div>
-        </div>
-      </form>
+              <img src={googleIcon} alt="icono google" />
+            </ValidBtn>
+          </WrapperTexto>
+        </WrapperGral>
+      </FormWrapper>
+      <Footer margin="2%" />
     </>
   );
 };

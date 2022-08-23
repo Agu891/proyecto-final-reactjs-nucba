@@ -1,15 +1,16 @@
 import React from 'react';
-import './headerSimple.css';
+
 import { Link } from 'react-router-dom';
+import { NavBarSimple, Logo } from './HeaderSimpleElement';
 const HeaderSimple = () => {
   return (
-    <nav id="navBarSimple">
-      <div className="logo">
+    <NavBarSimple>
+      <Logo>
         <Link to="/">
           <h1>PcGeeks</h1>
         </Link>
-      </div>
-    </nav>
+      </Logo>
+    </NavBarSimple>
   );
 };
 

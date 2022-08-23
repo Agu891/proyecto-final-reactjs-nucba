@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useEffect } from 'react';
-import Footer from './components/Footer/Footer';
+
 import Home from './Pages/home/Home';
 import Login from './Pages/login/Login';
 import Register from './Pages/Register/Register';
@@ -17,6 +17,7 @@ import { useCartItem } from './hooks/useItems';
 import { useSection } from './hooks/useSection';
 import { auth, createUserProfileDocument } from './firebase/firebase.util';
 import * as userActions from './redux/user/user-actions';
+
 function onAuthStateChange(cb, action) {
   auth.onAuthStateChanged(async (userAuth) => {
     if (userAuth) {
@@ -53,7 +54,6 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/contacto" element={<Contacto />} />
       </Routes>
-      <Footer />
     </Router>
   );
 }

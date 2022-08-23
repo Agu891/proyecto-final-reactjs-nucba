@@ -1,15 +1,22 @@
 import React from 'react';
 
 import HeaderSimple from '../../components/HeaderSimple/HeaderSimple';
-import './contacto.css';
+
+import Footer from '../../components/Footer/Footer';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { ValidBtn } from '../login/LoginElements';
+import {
+  InputContacto,
+  WrapperContacto,
+  WrapperTextoContacto,
+} from './ContactoElements';
 const Contacto = () => {
   return (
     <>
       <HeaderSimple />
-      <div id="wrapperContacto">
-        <div id="boxContacto">
+      <WrapperContacto>
+        <WrapperTextoContacto>
           <p>
             Inicio <FontAwesomeIcon icon={faAngleRight} /> contacto
           </p>
@@ -20,19 +27,20 @@ const Contacto = () => {
           <span>Email: pcgeeks@mail.com</span>
           <span>Direccion : Jorge Urquiza 1235</span>
           <span>Visita nuestro canal de Youtube!</span>
-        </div>
-        <form action="">
+        </WrapperTextoContacto>
+        <form>
           <label for="nombre">Nombre</label>
-          <input type="text" value="" name="nombre" />
+          <InputContacto type="text" value="" name="nombre" />
           <label for="Email">Email</label>
-          <input type="text" value="" name="email" />
+          <InputContacto type="text" value="" name="email" />
           <label for="nombre">Telefono</label>
-          <input type="text" value="" />
+          <InputContacto type="text" value="" />
           <label for="nombre">Mensaje</label>
           <textarea name="" id="textarea" cols="50" rows="5"></textarea>
-          <input type="submit" value="Enviar" id="btnSubmit" />
+          <ValidBtn> Enviar </ValidBtn>
         </form>
-      </div>
+      </WrapperContacto>
+      <Footer margin="5%" />
     </>
   );
 };

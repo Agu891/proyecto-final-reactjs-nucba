@@ -1,10 +1,17 @@
 import React from 'react';
-import './carrito.css';
 import { formatPrice } from '../../utils/formatPrice';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import * as cartActions from '../../redux/cart/cart-actions';
 import { useNavigate } from 'react-router-dom';
+import {
+  FinalizarBtn,
+  Items,
+  ItemsImg,
+  TotalPrice,
+  WrapperCarrito,
+} from './CarritoElements';
+
 const Carrito = () => {
   const navigate = useNavigate();
   const currentUser = useSelector((state) => state.user.currentUser);
@@ -23,6 +30,7 @@ const Carrito = () => {
       navigate('/Register');
     }
   };
+
   const addToCart = (i) => {
     dispatch(cartActions.addItem(i));
   };
@@ -31,13 +39,13 @@ const Carrito = () => {
   };
   return (
     <>
-      <div className={hidden ? 'wrapperCarrito' : 'wrapperCarrito openCarrito'}>
+      <WrapperCarrito show={hidden}>
         {cartItems.length === 0 ? (
           <p>El carrito esta vacio</p>
         ) : (
           cartItems.map((item) => (
             <div className="contenedorItems">
-              <div className="items">
+              <Items>
                 <h3>{item.nombre}</h3>
                 <button onClick={() => addToCart(item)} className="addRemBtns">
                   +
@@ -49,21 +57,19 @@ const Carrito = () => {
                 >
                   -
                 </button>
-                <img src={item.img} alt={item.nombre} />
+                <ItemsImg src={item.img} alt={item.nombre} />
                 <div>{formatPrice(item.precio * item.quantity)}</div>
-              </div>
+              </Items>
             </div>
           ))
         )}
         {cartItems.length >= 1 && (
           <>
-            <h3 className="totalPrice">Total:{formatPrice(subTotal)}</h3>
-            <button className="finalizarBtn" onClick={clearCart}>
-              Finalizar compra
-            </button>
+            <TotalPrice>Total:{formatPrice(subTotal)}</TotalPrice>
+            <FinalizarBtn onClick={clearCart}>Finalizar compra</FinalizarBtn>
           </>
         )}
-      </div>
+      </WrapperCarrito>
     </>
   );
 };

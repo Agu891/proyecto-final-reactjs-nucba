@@ -6,7 +6,7 @@ import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { auth, createUserProfileDocument } from '../../firebase/firebase.util';
-import './register.css';
+
 import { useSelector } from 'react-redux';
 
 import {
@@ -14,6 +14,14 @@ import {
   VALIDATOR_MINLENGTH,
   VALIDATOR_REQUIRE,
 } from '../../utils/validators';
+import {
+  FormWrapper,
+  InvalidBtn,
+  ValidBtn,
+  WrapperGral,
+  WrapperTexto,
+} from '../login/LoginElements';
+import Footer from '../../components/Footer/Footer';
 const Register = () => {
   const currentUser = useSelector((state) => state.user.currentUser);
   const navigate = useNavigate();
@@ -70,15 +78,15 @@ const Register = () => {
   return (
     <>
       <HeaderSimple />
-      <form onSubmit={handlerSubmit}>
-        <div className="boxgral">
+      <FormWrapper onSubmit={handlerSubmit}>
+        <WrapperGral>
           <p>
             Inicio <FontAwesomeIcon icon={faAngleRight} /> MiCuenta
             <FontAwesomeIcon icon={faAngleRight} /> Crear cuenta
           </p>
           <h2>Crear cuenta</h2>
 
-          <div className="boxes-input">
+          <WrapperTexto>
             <Input
               element="input"
               id="nombre"
@@ -89,9 +97,9 @@ const Register = () => {
               errorText="Campo Obligatorio"
               placeholder="ej:. Juan"
             />
-          </div>
+          </WrapperTexto>
 
-          <div className="boxes-input">
+          <WrapperTexto>
             <Input
               element="input"
               id="apellido"
@@ -102,9 +110,9 @@ const Register = () => {
               errorText="Campo Obligatorio"
               placeholder="ej:. Rodriguez"
             />
-          </div>
+          </WrapperTexto>
 
-          <div className="boxes-input">
+          <WrapperTexto>
             <Input
               element="input"
               id="email"
@@ -112,12 +120,12 @@ const Register = () => {
               type="email"
               onInput={inputHandler}
               validators={[VALIDATOR_EMAIL()]}
-              errorText="Ingresa un email"
+              errorText="Ingresa un email valido"
               placeholder="ej:. JuanR@mail.com"
             />
-          </div>
+          </WrapperTexto>
 
-          <div className="boxes-input">
+          <WrapperTexto>
             <Input
               element="input"
               id="displayName"
@@ -128,8 +136,8 @@ const Register = () => {
               errorText="Campo Obligatorio"
               placeholder="ej:. Juan891"
             />
-          </div>
-          <div className="boxes-input">
+          </WrapperTexto>
+          <WrapperTexto>
             <Input
               element="input"
               id="password"
@@ -139,20 +147,19 @@ const Register = () => {
               validators={[VALIDATOR_MINLENGTH(8)]}
               errorText="Minimo 8 caracteres"
             />
-          </div>
+          </WrapperTexto>
 
           {formState.isValid ? (
-            <button className="validBtn">Registrarse</button>
+            <ValidBtn>Registrarse</ValidBtn>
           ) : (
-            <button className="invalidBtn" disabled={true}>
-              Registrarse
-            </button>
+            <InvalidBtn disabled={true}>Registrarse</InvalidBtn>
           )}
           <Link to="/login">
             <p>¿Ya tenes una cuenta? INICIÁ SESIÓN</p>
           </Link>
-        </div>
-      </form>
+        </WrapperGral>
+      </FormWrapper>
+      <Footer margin="300px" />
     </>
   );
 };

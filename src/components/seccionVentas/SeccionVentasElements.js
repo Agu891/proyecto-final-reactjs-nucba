@@ -60,6 +60,9 @@ export const TextWrapper = styled.div`
   flex-direction: column;
   font-family: var(--fontfamily);
   text-align: center;
+  b {
+    color: blue;
+  }
 `;
 export const BtnAzul = styled.button`
   border: none;

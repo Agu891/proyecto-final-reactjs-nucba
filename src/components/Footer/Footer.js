@@ -11,24 +11,24 @@ import { Link } from 'react-router-dom';
 import {
   FooterWrapper,
   LinkWrapper,
-  Astyled,
+  Pstyled,
   InputStyled,
   Redes,
   ListaContacto,
   Derechos,
 } from './FooterElements';
-const Footer = () => {
+const Footer = (props) => {
   return (
     <footer>
-      <FooterWrapper>
+      <FooterWrapper margin={props.margin}>
         <LinkWrapper>
           <Link to="/">
-            <Astyled>Inicio</Astyled>
+            <Pstyled>Inicio</Pstyled>
           </Link>
-          <Astyled>Quienes somos</Astyled>
-          <Astyled>Preguntas Frecuentes</Astyled>
+          <Pstyled>Quienes somos</Pstyled>
+          <Pstyled>Preguntas Frecuentes</Pstyled>
           <Link to="/contacto">
-            <Astyled>Contacto</Astyled>
+            <Pstyled>Contacto</Pstyled>
           </Link>
         </LinkWrapper>
         <div>
@@ -36,11 +36,11 @@ const Footer = () => {
           <InputStyled type="text" placeholder="Suscribite al newsletter..." />
         </div>
         <Redes id="redes">
-          <Astyled href="">Instagram</Astyled>
-          <Astyled href="">Facebook</Astyled>
-          <Astyled href="">Youtube</Astyled>
-          <Astyled href="">Twitter</Astyled>
-          <Astyled href="">Pinterest</Astyled>
+          <Pstyled href="">Instagram</Pstyled>
+          <Pstyled href="">Facebook</Pstyled>
+          <Pstyled href="">Youtube</Pstyled>
+          <Pstyled href="">Twitter</Pstyled>
+          <Pstyled href="">Pinterest</Pstyled>
         </Redes>
         <ListaContacto>
           <div>

@@ -1,5 +1,4 @@
 import React from 'react';
-import './navbar.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -11,6 +10,20 @@ import * as cartActions from '../../redux/cart/cart-actions';
 import { Link } from 'react-router-dom';
 import { auth } from '../../firebase/firebase.util';
 import { useSelector } from 'react-redux';
+import {
+  BurguerSpan,
+  Carrito,
+  CheckboxComponentes,
+  Componentes,
+  InputMenu,
+  Logo,
+  LogoQuery,
+  Menu,
+  MenuToggle,
+  NavBarPrincipal,
+  UserName,
+  UserNameContainer,
+} from './NavbarElements';
 
 const Navbar = ({ setSection }) => {
   const currentUser = useSelector((state) => state.user.currentUser);
@@ -25,47 +38,43 @@ const Navbar = ({ setSection }) => {
   };
   return (
     <>
-      <nav id="navBar">
-        <div id="menuToggle">
-          <input type="checkbox" id="inputMenu" />
-          <span className="span1"></span>
-          <span className="span2"></span>
-          <span className="span3"></span>
-          <ul className="ul1" id="menu">
-            <li className="logoQuery">PcGeeks</li>
-            <li className="menu__item">Inicio</li>
+      <NavBarPrincipal>
+        <MenuToggle>
+          <InputMenu type="checkbox" />
+          <BurguerSpan margin="-10px" />
+          <BurguerSpan margin="7px" />
+          <BurguerSpan margin="23px" />
+          <Menu>
+            <LogoQuery>PcGeeks</LogoQuery>
+            <li>Inicio</li>
             {currentUser ? (
               <>
-                <li className="userNameContainer menu">
+                <UserNameContainer>
                   <p> Bienvenido, </p>
-                  <p className="userName">
+                  <UserName>
                     {currentUser.displayName
                       ? currentUser.displayName
                       : currentUser.email}
-                  </p>
-                </li>
+                  </UserName>
+                </UserNameContainer>
                 <li onClick={() => auth.signOut()}>Logout</li>
               </>
             ) : (
               <>
                 <Link to="/login">
-                  <li className="menu__item" id="registrarse">
-                    Iniciar Sesion
-                  </li>
+                  <li id="registrarse">Iniciar Sesion</li>
                 </Link>
                 <Link to="/register">
-                  <li className="menu__item" id="iniciarSesion">
-                    Registrarse
-                  </li>
+                  <li id="iniciarSesion">Registrarse</li>
                 </Link>
               </>
             )}
 
-            <li className="menu__item" onClick={() => setSection('Destacados')}>
+            <li onClick={() => setSection('Destacados')}>
               Destacados y Ofertas
             </li>
-            <li className="menu__item" id="componentes">
-              <input type="checkbox" id="checkboxComponentes" /> Componentes
+            <Componentes>
+              <CheckboxComponentes type="checkbox" /> Componentes
               <FontAwesomeIcon id="flechita" icon={faAngleRight} />
               <ul>
                 <li onClick={() => setSection('Tarjetas de video')}>GPUs</li>
@@ -75,16 +84,16 @@ const Navbar = ({ setSection }) => {
                 <li onClick={() => setSection('Fuentes')}>Fuentes</li>
                 <li onClick={() => setSection('Gabinetes')}>Gabinetes</li>
               </ul>
-            </li>
+            </Componentes>
             <Link to="/contacto">
-              <li className="menu__item">Contacto</li>
+              <li>Contacto</li>
             </Link>
-          </ul>
-        </div>
-        <div className="logo">
+          </Menu>
+        </MenuToggle>
+        <Logo>
           <h1>PcGeeks</h1>
-        </div>
-        <div id="carrito">
+        </Logo>
+        <Carrito>
           <FontAwesomeIcon
             icon={faCartShopping}
             id="imgCarrito"
@@ -93,8 +102,8 @@ const Navbar = ({ setSection }) => {
             onClick={handlerToggle}
           />
           {quantity === 0 ? '' : <span>{quantity}</span>}
-        </div>
-      </nav>
+        </Carrito>
+      </NavBarPrincipal>
     </>
   );
 };

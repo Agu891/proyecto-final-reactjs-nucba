@@ -12,6 +12,10 @@ export const FooterWrapper = styled.div`
   align-items: center;
   padding-top: 15px;
   background-color: white;
+  margin-top: ${(props) => props.margin};
+  a {
+    text-decoration: none;
+  }
 `;
 export const LinkWrapper = styled.div`
   display: -webkit-box;
@@ -23,17 +27,17 @@ export const LinkWrapper = styled.div`
   flex-direction: column;
 `;
 
-export const Astyled = styled.a`
+export const Pstyled = styled.p`
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  text-decoration: none;
   color: black;
   padding-left: 25px;
-  padding-top: 25px;
+  padding-top: 0px;
   font-size: 0.9rem;
   text-transform: uppercase;
-  font-family: var(--fontfamily);
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 `;
 
 export const InputStyled = styled.input`
@@ -72,9 +76,17 @@ export const ListaContacto = styled.div`
   padding-left: 15px;
   margin-top: 10px;
   text-align: flex-start;
+  div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  p {
+    padding-left: 10px;
+  }
 `;
 export const Derechos = styled.p`
   text-align: center;
   background-color: white;
-  padding-top: 15px;
+  padding-top: 10px;
 `;

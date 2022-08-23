@@ -12,7 +12,7 @@ import {
   BtnAzul,
 } from './SeccionVentasElements';
 
-const SeccionVentas = ({ cartItems, setCartItems, section, setSection }) => {
+const SeccionVentas = ({ section, setSection }) => {
   const dispatch = useDispatch();
   const porcentajeRecargoCredito = (numero) => {
     return (numero * 15) / 100 + numero;
