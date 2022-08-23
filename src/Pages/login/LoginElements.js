@@ -40,7 +40,6 @@ export const WrapperTexto = styled.div`
   height: 100%;
   flex-direction: column;
   justify-content: space-between;
-
   input {
     border: 1px solid grey;
     padding: 15px;
@@ -78,6 +77,7 @@ export const ValidBtn = styled.button`
   font-weight: 700;
   padding: 20px;
   transition-duration: 500ms;
+  margin: 5px 18px 2px 18px;
   background: rgb(2, 210, 231);
   background: linear-gradient(
     167deg,
@@ -85,19 +85,20 @@ export const ValidBtn = styled.button`
     rgba(0, 129, 255, 1) 55%
   );
   img {
-    width: 35px;
-    padding-left: 5px;
+    width: 20px;
+    padding-right: 15px;
   }
 `;
 
 export const InvalidBtn = styled.button`
   cursor: pointer;
+
   width: 80%;
   height: 8%;
   border-radius: 15px;
   border: none;
   font-weight: 500;
-  margin-top: 5px;
+  margin: 5px 18px 2px 18px;
   transition-duration: 0.3s;
   text-transform: uppercase;
   font-weight: 700;

@@ -90,8 +90,8 @@ const Login = () => {
               <InvalidBtn disabled={true}>Iniciar Sesión</InvalidBtn>
             )}
             <ValidBtn onClick={signInWithGoogle}>
-              Iniciar Sesión con Google
               <img src={googleIcon} alt="icono google" />
+              Iniciar con Google
             </ValidBtn>
           </WrapperTexto>
         </WrapperGral>
