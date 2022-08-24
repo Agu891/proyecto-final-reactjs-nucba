@@ -32,6 +32,11 @@ const Navbar = ({ setSection }) => {
       return acc + cartItem.quantity;
     }, 0)
   );
+
+  const sectionHandler = (section) => {
+    setSection(section);
+    window.location.replace('/#ventas');
+  };
   const dispatch = useDispatch();
   const handlerToggle = () => {
     dispatch(cartActions.toggleCartHidden());
@@ -70,19 +75,25 @@ const Navbar = ({ setSection }) => {
               </>
             )}
 
-            <li onClick={() => setSection('Destacados')}>
+            <li onClick={() => sectionHandler('Destacados')}>
               Destacados y Ofertas
             </li>
             <Componentes>
               <CheckboxComponentes type="checkbox" /> Componentes
               <FontAwesomeIcon id="flechita" icon={faAngleRight} />
               <ul>
-                <li onClick={() => setSection('Tarjetas de video')}>GPUs</li>
-                <li onClick={() => setSection('Memorias')}>Memorias Ram</li>
-                <li onClick={() => setSection('Procesadores')}>Procesadores</li>
-                <li onClick={() => setSection('Motherboards')}>Motherboards</li>
-                <li onClick={() => setSection('Fuentes')}>Fuentes</li>
-                <li onClick={() => setSection('Gabinetes')}>Gabinetes</li>
+                <li onClick={() => sectionHandler('Tarjetas de video')}>
+                  GPUs
+                </li>
+                <li onClick={() => sectionHandler('Memorias')}>Memorias Ram</li>
+                <li onClick={() => sectionHandler('Procesadores')}>
+                  Procesadores
+                </li>
+                <li onClick={() => sectionHandler('Motherboards')}>
+                  Motherboards
+                </li>
+                <li onClick={() => sectionHandler('Fuentes')}>Fuentes</li>
+                <li onClick={() => sectionHandler('Gabinetes')}>Gabinetes</li>
               </ul>
             </Componentes>
             <Link to="/contacto">

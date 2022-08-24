@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { NavBarSimple, Logo } from './HeaderSimpleElement';
 const HeaderSimple = () => {
   return (
-    <NavBarSimple>
+    <NavBarSimple id="headersimple">
       <Logo>
         <Link to="/">
           <h1>PcGeeks</h1>

@@ -30,7 +30,7 @@ const SeccionVentas = ({ section, setSection }) => {
       {Object.entries(items).map(([seccionName, items]) => {
         return (
           <>
-            <SeccionVentasWrapper>
+            <SeccionVentasWrapper id="ventas">
               <div>
                 <h2>{seccionName}</h2>
               </div>
@@ -64,7 +64,12 @@ const SeccionVentas = ({ section, setSection }) => {
                 ))}
               </WrapperProductos>
               {section && (
-                <BtnAzul onClick={() => setSection(null)}>
+                <BtnAzul
+                  onClick={() => {
+                    setSection(null);
+                    window.location.replace('/#ventas');
+                  }}
+                >
                   Ver todos los productos
                 </BtnAzul>
               )}

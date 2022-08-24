@@ -10,19 +10,19 @@ import { GlobalStylesContainer } from '../../Styles/Styles';
 import { HomeWrapper } from './HomeElements';
 import Footer from '../../components/Footer/Footer';
 
-const Home = ({ productos, secciones }) => {
+const Home = ({ secciones }) => {
   return (
     <>
       <GlobalStylesContainer>
         <HomeWrapper>
           <header>
-            <Navbar {...productos} {...secciones} />
+            <Navbar {...secciones} />
             <Portada />
           </header>
-          <Carrito {...productos} />
+          <Carrito />
           <LinkImages />
 
-          <SeccionVentas {...productos} {...secciones} />
+          <SeccionVentas {...secciones} />
 
           <Marcas />
         </HomeWrapper>

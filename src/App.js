@@ -5,15 +5,9 @@ import Home from './Pages/home/Home';
 import Login from './Pages/login/Login';
 import Register from './Pages/Register/Register';
 import Contacto from './Pages/contacto/Contacto';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Routes,
-} from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
-import { useCartItem } from './hooks/useItems';
 import { useSection } from './hooks/useSection';
 import { auth, createUserProfileDocument } from './firebase/firebase.util';
 import * as userActions from './redux/user/user-actions';
@@ -32,9 +26,8 @@ function onAuthStateChange(cb, action) {
 }
 
 function App() {
-  const productos = useCartItem();
   const secciones = useSection();
-  const currentUser = useSelector((state) => state.user.currentUser);
+
   const dispatch = useDispatch();
   useEffect(() => {
     const unsubscribe = onAuthStateChange(dispatch, userActions.setCurrentUser);
@@ -46,10 +39,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route
-          path="/"
-          element={<Home productos={productos} secciones={secciones} />}
-        />
+        <Route path="/" element={<Home secciones={secciones} />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/contacto" element={<Contacto />} />
