@@ -4,7 +4,7 @@ import 'firebase/compat/auth';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyB3Gv0tTxoliiP0ZKlWo6VkuUv3MGnG2nE',
-  authDomain: 'proyecto-final-reactjs-nucba.vercel.app',
+  authDomain: 'proyecto-final-reactjs-nucba.vercel.app/login',
   projectId: 'proyecto-integrador-reactjs',
   storageBucket: 'proyecto-integrador-reactjs.appspot.com',
   messagingSenderId: '529039508917',
