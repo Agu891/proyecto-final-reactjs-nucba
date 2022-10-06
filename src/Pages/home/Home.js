@@ -20,7 +20,7 @@ const Home = ({ secciones }) => {
             <Portada />
           </header>
           <Carrito />
-          <LinkImages />
+          <LinkImages {...secciones} />
 
           <SeccionVentas {...secciones} />
 

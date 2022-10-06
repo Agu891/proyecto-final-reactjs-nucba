@@ -19,7 +19,7 @@ const Carrito = () => {
   const hidden = useSelector((state) => state.cart.hidden);
   const cartItems = useSelector((state) => state.cart.cartItems);
   const subTotal = cartItems.reduce((acc, item) => {
-    return acc + item.precio * item.quantity;
+    return acc + item.price * item.quantity;
   }, 0);
   const clearCart = () => {
     if (currentUser) {
@@ -58,7 +58,7 @@ const Carrito = () => {
                   -
                 </button>
                 <ItemsImg src={item.img} alt={item.nombre} />
-                <div>{formatPrice(item.precio * item.quantity)}</div>
+                <div>{formatPrice(item.price * item.quantity)}</div>
               </Items>
             </div>
           ))

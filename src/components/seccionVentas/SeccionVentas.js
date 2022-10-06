@@ -25,6 +25,7 @@ const SeccionVentas = ({ section, setSection }) => {
   const addToCart = (i) => {
     dispatch(cartActions.addItem(i));
   };
+
   return (
     <>
       {Object.entries(items).map(([seccionName, items]) => {
@@ -39,18 +40,18 @@ const SeccionVentas = ({ section, setSection }) => {
                   <>
                     <CardWrapper>
                       <ImgWrapper>
-                        <img src={item.img} alt={item.nombre} />
+                        <img src={item.img} alt={item.name} />
                       </ImgWrapper>
                       <TextWrapper>
-                        <h3>{item.nombre}</h3>
+                        <h3>{item.name}</h3>
 
-                        <p>{formatPrice(item.precio)}</p>
+                        <p>{formatPrice(item.price)}</p>
                         <span>
                           o <b>12</b> cuotas sin intereses de
                           <b>
                             {formatPrice(
                               parseInt(
-                                porcentajeRecargoCredito(item.precio) / 12
+                                porcentajeRecargoCredito(item.price) / 12
                               )
                             )}
                           </b>
