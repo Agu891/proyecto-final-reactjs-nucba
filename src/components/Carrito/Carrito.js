@@ -30,7 +30,9 @@ const Carrito = () => {
       navigate('/Register');
     }
   };
-
+  const goToCheckout = () => {
+    navigate('/checkout');
+  };
   const addToCart = (i) => {
     dispatch(cartActions.addItem(i));
   };
@@ -66,7 +68,9 @@ const Carrito = () => {
         {cartItems.length >= 1 && (
           <>
             <TotalPrice>Total:{formatPrice(subTotal)}</TotalPrice>
-            <FinalizarBtn onClick={clearCart}>Finalizar compra</FinalizarBtn>
+            <FinalizarBtn onClick={() => goToCheckout()}>
+              Finalizar compra
+            </FinalizarBtn>
           </>
         )}
       </WrapperCarrito>

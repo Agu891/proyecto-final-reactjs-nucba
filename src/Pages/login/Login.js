@@ -57,7 +57,7 @@ const Login = () => {
             Inicio <FontAwesomeIcon icon={faAngleRight} /> MiCuenta
             <FontAwesomeIcon icon={faAngleRight} /> Login
           </p>
-          <WrapperTexto>
+          <WrapperTexto justify="space-evenly">
             <h2>Iniciar Sesión</h2>
 
             <Input
@@ -89,10 +89,6 @@ const Login = () => {
             ) : (
               <InvalidBtn disabled={true}>Iniciar Sesión</InvalidBtn>
             )}
-            <ValidBtn onClick={signInWithGoogle}>
-              <img src={googleIcon} alt="icono google" />
-              Iniciar con Google
-            </ValidBtn>
           </WrapperTexto>
         </WrapperGral>
       </FormWrapper>

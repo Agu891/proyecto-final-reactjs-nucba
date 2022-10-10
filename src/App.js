@@ -5,6 +5,7 @@ import Home from './Pages/home/Home';
 import Login from './Pages/login/Login';
 import Register from './Pages/Register/Register';
 import Contacto from './Pages/contacto/Contacto';
+import CheckoutPage from './Pages/CheckoutPaymentPage/CheckoutPage';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
@@ -43,6 +44,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/contacto" element={<Contacto />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
       </Routes>
     </Router>
   );

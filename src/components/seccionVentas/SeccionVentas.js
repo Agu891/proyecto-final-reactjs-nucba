@@ -11,8 +11,11 @@ import {
   TextWrapper,
   BtnAzul,
 } from './SeccionVentasElements';
+import { useCategories } from '../../hooks/useCategories';
 
 const SeccionVentas = ({ section, setSection }) => {
+  const cates = useCategories();
+  console.log(cates);
   const dispatch = useDispatch();
   const porcentajeRecargoCredito = (numero) => {
     return (numero * 15) / 100 + numero;

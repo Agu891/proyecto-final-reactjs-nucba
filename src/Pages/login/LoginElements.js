@@ -39,7 +39,7 @@ export const WrapperTexto = styled.div`
   width: 100%;
   height: 100%;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: ${(props) => props.justify};
   input {
     border: 1px solid grey;
     padding: 15px;
@@ -65,16 +65,19 @@ export const ValidBtn = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+  color: white;
+
   cursor: pointer;
   width: 80%;
   height: 8%;
   border-radius: 15px;
   border: none;
-  font-weight: 500;
+
   margin-top: 5px;
   transition-duration: 0.3s;
   text-transform: uppercase;
   font-weight: 700;
+  font-size: 1.2rem;
   padding: 20px;
   transition-duration: 500ms;
   margin: 5px 18px 2px 18px;
@@ -92,7 +95,9 @@ export const ValidBtn = styled.button`
 
 export const InvalidBtn = styled.button`
   cursor: pointer;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 80%;
   height: 8%;
   border-radius: 15px;
@@ -101,6 +106,7 @@ export const InvalidBtn = styled.button`
   margin: 5px 18px 2px 18px;
   transition-duration: 0.3s;
   text-transform: uppercase;
+  font-size: 1.2rem;
   font-weight: 700;
   padding: 20px;
   transition-duration: 500ms;
