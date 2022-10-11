@@ -8,7 +8,6 @@ import Contacto from './Pages/contacto/Contacto';
 import CheckoutPage from './Pages/CheckoutPaymentPage/CheckoutPage';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-
 import { useSection } from './hooks/useSection';
 import { auth, createUserProfileDocument } from './firebase/firebase.util';
 import * as userActions from './redux/user/user-actions';

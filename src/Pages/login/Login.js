@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import useForm from '../../hooks/useForm';
 import Input from '../../components/input/Input';
@@ -7,10 +7,9 @@ import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link, useNavigate } from 'react-router-dom';
 import { VALIDATOR_MINLENGTH, VALIDATOR_REQUIRE } from '../../utils/validators';
-import { auth, signInWithGoogle } from '../../firebase/firebase.util';
-import { useSelector } from 'react-redux';
+
 import Footer from '../../components/Footer/Footer';
-import googleIcon from './google.png';
+
 import {
   FormWrapper,
   InvalidBtn,
@@ -18,8 +17,26 @@ import {
   WrapperGral,
   WrapperTexto,
 } from './LoginElements';
+import { useMutation } from '@tanstack/react-query';
 const Login = () => {
-  const currentUser = useSelector((state) => state.user.currentUser);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const mutation = useMutation(
+    async (email, password) => {
+      await new Promise((resolve) => setTimeout(resolve, 400));
+      return fetch('https://api-pc-geeks.herokuapp.com/api/v1/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: email, password: password }),
+      });
+    },
+    { onSuccess: () => console.log('login succesful') },
+    { onError: () => console.log('login failure') }
+  );
+
   const navigate = useNavigate();
 
   const [formState, inputHandler] = useForm(
@@ -35,23 +52,11 @@ const Login = () => {
     },
     false
   );
-  if (currentUser) {
-    navigate('/');
-  }
-  const submitHandler = async (event) => {
-    event.preventDefault();
-    if (formState.isValid) {
-      await auth.signInWithEmailAndPassword(
-        formState.inputs.email.value,
-        formState.inputs.password.value
-      );
-    }
-  };
 
   return (
     <>
       <HeaderSimple />
-      <FormWrapper onSubmit={submitHandler} id="form">
+      <FormWrapper id="form">
         <WrapperGral>
           <p>
             Inicio <FontAwesomeIcon icon={faAngleRight} /> MiCuenta
@@ -65,7 +70,7 @@ const Login = () => {
               id="email"
               label="Email"
               type="email"
-              onInput={inputHandler}
+              onChange={(e) => setEmail(e.target.value)}
               validators={[VALIDATOR_REQUIRE()]}
               errorText="Campo Obligatorio"
               placeholder="ej:. Juan@mail.com"
@@ -75,7 +80,7 @@ const Login = () => {
               id="password"
               label="Contraseña"
               type="password"
-              onInput={inputHandler}
+              onChange={(e) => setPassword(e.target.value)}
               validators={[VALIDATOR_MINLENGTH(8)]}
               errorText="Minimo 8 caracteres"
             />
@@ -85,7 +90,13 @@ const Login = () => {
             </Link>
 
             {formState.isValid ? (
-              <ValidBtn>Iniciar Sesión</ValidBtn>
+              <ValidBtn
+                onClick={() =>
+                  mutation.mutate({ email: email, password: password })
+                }
+              >
+                Iniciar Sesión
+              </ValidBtn>
             ) : (
               <InvalidBtn disabled={true}>Iniciar Sesión</InvalidBtn>
             )}

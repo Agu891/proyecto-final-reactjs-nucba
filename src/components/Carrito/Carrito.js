@@ -48,7 +48,7 @@ const Carrito = () => {
           cartItems.map((item) => (
             <div className="contenedorItems">
               <Items>
-                <h3>{item.nombre}</h3>
+                <h3>{item.name}</h3>
                 <button onClick={() => addToCart(item)} className="addRemBtns">
                   +
                 </button>
@@ -59,7 +59,7 @@ const Carrito = () => {
                 >
                   -
                 </button>
-                <ItemsImg src={item.img} alt={item.nombre} />
+                <ItemsImg src={item.imgUrl} alt={item.name} />
                 <div>{formatPrice(item.price * item.quantity)}</div>
               </Items>
             </div>

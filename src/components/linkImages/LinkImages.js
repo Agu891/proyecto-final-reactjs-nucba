@@ -5,16 +5,20 @@ import {
   WrapperGralSeccion2,
   BoxImgs,
 } from './LinkImagesElements';
-import Motherimg from './img/motherboard2.jpg';
-import MemoriaImg from './img/mejores-memorias-ram.jpg';
-import GpuImg from './img/video3.jpg';
-import MicroImg from './img/procesadores.jpg';
+
 const LinkImages = ({ setSection }) => {
   const sectionHandler = (section) => {
     setSection(section);
     window.location.replace('/#ventas');
   };
-
+  const Motherimg =
+    'https://res.cloudinary.com/dhfwuqzoz/image/upload/v1665531763/imgParalinkImages/motherboard2_xfimuz.jpg';
+  const MemoriaImg =
+    'https://res.cloudinary.com/dhfwuqzoz/image/upload/v1665531762/imgParalinkImages/mejores-memorias-ram_vapzoc.jpg';
+  const GpuImg =
+    'https://res.cloudinary.com/dhfwuqzoz/image/upload/v1665531763/imgParalinkImages/video3_dlzyri.jpg';
+  const MicroImg =
+    'https://res.cloudinary.com/dhfwuqzoz/image/upload/v1665531762/imgParalinkImages/procesadores_snhlt5.jpg';
   return (
     <>
       <Seccion1Wrapper>
