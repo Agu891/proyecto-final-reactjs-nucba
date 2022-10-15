@@ -1,58 +1,28 @@
 import React, { useState } from 'react';
-
-import useForm from '../../hooks/useForm';
-import Input from '../../components/input/Input';
+import { Input, Spinner } from '@chakra-ui/react';
 import HeaderSimple from '../../components/HeaderSimple/HeaderSimple';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link, useNavigate } from 'react-router-dom';
-import { VALIDATOR_MINLENGTH, VALIDATOR_REQUIRE } from '../../utils/validators';
-
 import Footer from '../../components/Footer/Footer';
-
+import { useAuth } from '../../context/AuthContext';
 import {
   FormWrapper,
-  InvalidBtn,
   ValidBtn,
   WrapperGral,
   WrapperTexto,
 } from './LoginElements';
-import { useMutation } from '@tanstack/react-query';
+
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  const mutation = useMutation(
-    async (email, password) => {
-      await new Promise((resolve) => setTimeout(resolve, 400));
-      return fetch('https://api-pc-geeks.herokuapp.com/api/v1/auth/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email: email, password: password }),
-      });
-    },
-    { onSuccess: () => console.log('login succesful') },
-    { onError: () => console.log('login failure') }
-  );
-
+  const { currentUser, loading, login } = useAuth();
+  //Aca tengo el problema con el Login lo intento usar en  el boton de mas abajo pero la peticion a la api no llega
   const navigate = useNavigate();
 
-  const [formState, inputHandler] = useForm(
-    {
-      email: {
-        value: '',
-        isValid: false,
-      },
-      password: {
-        value: '',
-        isValid: false,
-      },
-    },
-    false
-  );
-
+  if (currentUser) {
+    navigate('/');
+  }
   return (
     <>
       <HeaderSimple />
@@ -62,44 +32,36 @@ const Login = () => {
             Inicio <FontAwesomeIcon icon={faAngleRight} /> MiCuenta
             <FontAwesomeIcon icon={faAngleRight} /> Login
           </p>
-          <WrapperTexto justify="space-evenly">
+          <WrapperTexto justify="center">
             <h2>Iniciar Sesión</h2>
-
+            <label htmlFor="email">Email</label>
             <Input
-              element="input"
               id="email"
-              label="Email"
+              placeholder="Ingrese  su email"
               type="email"
+              minH="55px"
+              value={email}
               onChange={(e) => setEmail(e.target.value)}
-              validators={[VALIDATOR_REQUIRE()]}
-              errorText="Campo Obligatorio"
-              placeholder="ej:. Juan@mail.com"
             />
+
+            <label htmlFor="password">Contraseña</label>
             <Input
-              element="input"
+              minH="55px"
               id="password"
-              label="Contraseña"
-              type="password"
+              placeholder="ingrese su contraseña"
+              value={password}
               onChange={(e) => setPassword(e.target.value)}
-              validators={[VALIDATOR_MINLENGTH(8)]}
-              errorText="Minimo 8 caracteres"
+              type="password"
             />
+
             <p>¿Olvido su contraseña?</p>
             <Link to="/register">
               <p> ¿No tenes cuenta? Registrate</p>
             </Link>
 
-            {formState.isValid ? (
-              <ValidBtn
-                onClick={() =>
-                  mutation.mutate({ email: email, password: password })
-                }
-              >
-                Iniciar Sesión
-              </ValidBtn>
-            ) : (
-              <InvalidBtn disabled={true}>Iniciar Sesión</InvalidBtn>
-            )}
+            <ValidBtn onClick={() => login(email, password)}>
+              {loading ? <Spinner /> : 'Ingresar'}
+            </ValidBtn>
           </WrapperTexto>
         </WrapperGral>
       </FormWrapper>

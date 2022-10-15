@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useSection } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
@@ -9,15 +9,25 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './redux/store';
 import { Provider } from 'react-redux';
 import { AxiosProvider } from './context/AxiosContext';
+import { ChakraProvider } from '@chakra-ui/react';
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 10,
+    },
+  },
+});
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <AxiosProvider>
     <Provider store={store}>
       <PersistGate persistor={persistor}>
         <QueryClientProvider client={queryClient}>
-          <App />
+          <ChakraProvider>
+            <App />
+          </ChakraProvider>
           <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>
       </PersistGate>

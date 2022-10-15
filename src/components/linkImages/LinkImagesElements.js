@@ -24,6 +24,7 @@ export const WrapperGralSeccion2 = styled.div`
   -webkit-overflow-scrolling: touch;
   overflow-x: auto;
   gap: 25px;
+
   @media screen and (min-width: 769px) {
     justify-content: center;
   }
@@ -41,25 +42,27 @@ export const BoxImgs = styled.div`
   -ms-flex-pack: justify;
   justify-content: space-between;
   scroll-snap-align: start;
-  border-radius: 10px;
   background-image: url(${(props) => props.image});
   background-position: center;
   background-size: 350%;
   min-width: 200px;
   width: 250px;
+  border: none;
+  border-radius: 10px;
   height: 250px;
   -webkit-transition: 500ms;
   transition: 500ms;
   cursor: pointer;
+
   h2 {
-    text-transform: uppercase;
     font-size: 1.2rem;
     color: white;
     text-align: start;
     font-weight: 600;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+      'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     padding: 5px;
     margin-bottom: 15px;
-    font-family: 'Courier New', Courier, monospace;
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
   }

@@ -8,7 +8,7 @@ import {
 import { useDispatch } from 'react-redux';
 import * as cartActions from '../../redux/cart/cart-actions';
 import { Link } from 'react-router-dom';
-import { auth } from '../../firebase/firebase.util';
+
 import { useSelector } from 'react-redux';
 import {
   BurguerSpan,
@@ -26,7 +26,7 @@ import {
 } from './NavbarElements';
 
 const Navbar = ({ setSection }) => {
-  const currentUser = useSelector((state) => state.user.currentUser);
+  const currentUser = '';
   const quantity = useSelector((state) =>
     state.cart.cartItems.reduce((acc, cartItem) => {
       return acc + cartItem.quantity;
@@ -62,7 +62,7 @@ const Navbar = ({ setSection }) => {
                       : currentUser.email}
                   </UserName>
                 </UserNameContainer>
-                <li onClick={() => auth.signOut()}>Logout</li>
+                <li onClick={() => console.log('armar logout')}>Logout</li>
               </>
             ) : (
               <>

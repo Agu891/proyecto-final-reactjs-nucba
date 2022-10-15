@@ -9,6 +9,11 @@ export const SeccionVentasWrapper = styled.section`
   background-color: white;
   border-radius: 15px 0 0 0;
   padding-left: 2%;
+  margin: 20px 0 20px 0;
+  h2 {
+    font-size: 2rem;
+    font-weight: 600;
+  }
 
   @media screen and (min-width: 769px) {
     margin-left: 175px;
@@ -60,6 +65,13 @@ export const TextWrapper = styled.div`
   flex-direction: column;
   font-family: var(--fontfamily);
   text-align: center;
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+  p {
+    font-size: 1.5rem;
+  }
   b {
     color: blue;
   }

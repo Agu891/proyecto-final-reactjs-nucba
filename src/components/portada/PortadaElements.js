@@ -37,7 +37,6 @@ export const WrapperPortada = styled.div`
 `;
 
 export const WrapperTitulo = styled.div`
-  font-family: var(--fontfamily);
   z-index: 1;
   -webkit-backdrop-filter: brightness(50%);
   backdrop-filter: brightness(50%);
@@ -53,9 +52,10 @@ export const WrapperTitulo = styled.div`
 `;
 
 export const H2Portada = styled.h2`
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   display: -webkit-box;
   display: -ms-flexbox;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -65,5 +65,5 @@ export const H2Portada = styled.h2`
   border-left: 3px solid aqua;
   padding-left: 5px;
   background-color: none;
-  height: 70px;
+  height: 75px;
 `;

@@ -134,7 +134,7 @@ export const Menu = styled.ul`
   display: flex;
   flex-direction: column;
   width: 55px;
-  padding: 450px 100px 0px 100px;
+  padding: 450px 150px 0px 100px;
   background-color: #303030;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
@@ -153,9 +153,9 @@ export const Menu = styled.ul`
     display: flex;
     padding-left: 5px;
     padding-top: 15px;
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: white;
-    font-family: var(--fontfamily);
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: 600;
     position: relative;
     width: 100%;
@@ -164,7 +164,21 @@ export const Menu = styled.ul`
     cursor: pointer;
     margin-bottom: 15px;
     
+    
   }
+   a  {
+    display: flex;
+    font-size: 1.1rem;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    position: relative;
+    width: 100%;
+    display: flex;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    
+   }
 
   @media screen and (min-width: 769px) {
     -webkit-transform: none;
@@ -188,9 +202,8 @@ export const LogoQuery = styled.h1`
     display: -ms-flexbox;
     display: flex;
     color: white;
-    margin-bottom: 80%;
-    padding-top: 100%;
-
+    margin-bottom: 70px;
+    padding-top: 150px;
     font-size: 1.5rem;
   }
 `;
@@ -259,6 +272,7 @@ export const Componentes = styled.li`
     margin-left: 5px;
     -webkit-transition: 200ms;
     transition: 200ms;
+    margin-top: 4px;
   }
 `;
 

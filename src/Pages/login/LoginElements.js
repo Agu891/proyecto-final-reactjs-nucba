@@ -38,13 +38,19 @@ export const WrapperTexto = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
+
   flex-direction: column;
   justify-content: ${(props) => props.justify};
+  label {
+    align-self: flex-start;
+  }
   input {
     border: 1px solid grey;
     padding: 15px;
     width: 80%;
+    height: 50px;
     border-radius: 5px;
+    margin-bottom: 50px;
   }
   p {
     align-self: flex-start;
@@ -66,13 +72,12 @@ export const ValidBtn = styled.button`
   align-items: center;
   justify-content: center;
   color: white;
-
   cursor: pointer;
   width: 80%;
   height: 8%;
+  max-height: 70px;
   border-radius: 15px;
   border: none;
-
   margin-top: 5px;
   transition-duration: 0.3s;
   text-transform: uppercase;
