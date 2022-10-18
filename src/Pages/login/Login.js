@@ -3,9 +3,10 @@ import { Input, Spinner } from '@chakra-ui/react';
 import HeaderSimple from '../../components/HeaderSimple/HeaderSimple';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Footer from '../../components/Footer/Footer';
 import { useAuth } from '../../context/AuthContext';
+
 import {
   FormWrapper,
   ValidBtn,
@@ -16,13 +17,8 @@ import {
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { currentUser, loading, login } = useAuth();
-  //Aca tengo el problema con el Login lo intento usar en  el boton de mas abajo pero la peticion a la api no llega
-  const navigate = useNavigate();
+  const { loading, login, error } = useAuth();
 
-  if (currentUser) {
-    navigate('/');
-  }
   return (
     <>
       <HeaderSimple />
@@ -59,7 +55,9 @@ const Login = () => {
               <p> ¿No tenes cuenta? Registrate</p>
             </Link>
 
-            <ValidBtn onClick={() => login(email, password)}>
+            <ValidBtn
+              onClick={(e) => [e.preventDefault(), login(email, password)]}
+            >
               {loading ? <Spinner /> : 'Ingresar'}
             </ValidBtn>
           </WrapperTexto>

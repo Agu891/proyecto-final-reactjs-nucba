@@ -1,31 +1,57 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Footer from '../../components/Footer/Footer';
 import HeaderSimple from '../../components/HeaderSimple/HeaderSimple';
-import { VALIDATOR_REQUIRE } from '../../utils/validators';
+import * as cartActions from '../../redux/cart/cart-actions';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import {
+  Input,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  Button,
+  useDisclosure,
+  Text,
+} from '@chakra-ui/react';
+import { useCreateOrder } from '../../hooks/useCategories';
 import {
   FormWrapper,
-  InvalidBtn,
   ValidBtn,
   WrapperGral,
   WrapperTexto,
 } from '../login/LoginElements';
-import useForm from '../../hooks/useForm';
-import Input from '../../components/input/Input';
 
 const CheckoutPage = () => {
-  const [formState, inputHandler] = useForm(
-    {
-      direccion: {
-        value: '',
-        isValid: false,
-      },
-      localidad: {
-        value: '',
-        isValid: false,
-      },
-    },
-    false
-  );
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const dispatch = useDispatch();
+  const clearCart = () => {
+    dispatch(cartActions.clearCart());
+  };
+  const [address, setAddress] = useState('');
+  const [location, setLocation] = useState('');
+  const { createOrder, initpoint } = useCreateOrder();
+
+  const dataLogin = JSON.parse(localStorage.getItem('authData'));
+
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  const item = cartItems.map((product) => {
+    return {
+      title: product.name,
+      quantity: product.quantity,
+      unitPrice: product.price,
+      productsId: product.id,
+    };
+  });
+  const itemReduce = item.flatMap((product) => `- ${product.title}  `);
+
+  const subTotal = cartItems.reduce((acc, item) => {
+    return acc + item.price * item.quantity;
+  }, 0);
+
   return (
     <>
       <HeaderSimple />
@@ -39,9 +65,8 @@ const CheckoutPage = () => {
               id="direccion"
               label="Dirección"
               type="text"
-              onInput={inputHandler}
-              validators={[VALIDATOR_REQUIRE()]}
-              errorText="Campo Obligatorio"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
               placeholder="ej:. Juan Alberdi 1234"
             />
             <Input
@@ -49,18 +74,52 @@ const CheckoutPage = () => {
               id="localidad"
               label="Localidad"
               type="text"
-              onInput={inputHandler}
-              validators={[VALIDATOR_REQUIRE()]}
-              errorText="Campo Obligatorio"
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
               placeholder="ej:. La Plata"
             />
-
-            {formState.isValid ? (
-              <ValidBtn>Proceder al pago </ValidBtn>
-            ) : (
-              <InvalidBtn disabled={true}>Proceder al pago</InvalidBtn>
-            )}
+            {}
+            <ValidBtn
+              onClick={(e) => [
+                e.preventDefault(),
+                onOpen(),
+                createOrder(
+                  dataLogin.result.userId,
+                  address,
+                  location,
+                  item,
+                  subTotal
+                ),
+              ]}
+            >
+              Proceder al pago
+            </ValidBtn>
           </WrapperTexto>
+
+          <Modal isOpen={isOpen} onClose={onClose}>
+            <ModalOverlay />
+            <ModalContent>
+              <ModalHeader fontSize="5xl">
+                Verifica bien los datos antes de proceder
+              </ModalHeader>
+              <ModalCloseButton />
+              <ModalBody>
+                <Text fontSize="3xl">Dirección: {address}</Text>
+                <Text fontSize="3xl">Localidad: {location}</Text>
+                <Text fontSize="2xl">Productos: {itemReduce}</Text>
+                <Text fontSize="3xl">Subtotal: ${subTotal}</Text>
+              </ModalBody>
+
+              <ModalFooter>
+                <Button colorScheme="blue" mr={3} onClick={onClose}>
+                  Close
+                </Button>
+                <Button onClick={() => [window.open(initpoint), onClose()]}>
+                  Pagar
+                </Button>
+              </ModalFooter>
+            </ModalContent>
+          </Modal>
         </WrapperGral>
       </FormWrapper>
       <Footer />

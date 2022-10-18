@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-mixed-operators */
 import React, {
   useState,
@@ -62,44 +63,67 @@ function useProvideAuth() {
     async (email, password) => {
       setLoading(true);
       try {
-        const response =
-          (await axios.post) <
-          // eslint-disable-next-line no-undef, no-mixed-operators
-          Auth >
-          ('/auth/login',
-          {
-            email,
-            password,
-          });
+        const response = await axios.post('/auth/login', {
+          email: email,
+          password: password,
+        });
         const expirationDate = new Date(
-          new Date().getTime() + response.data.expiresIn
+          new Date().getTime() + response.data.result.expiresIn
         ).getTime();
         console.log('expirationDate', expirationDate);
-        history.push('/');
         localStorage.setItem('authData', JSON.stringify(response.data));
         localStorage.setItem('expirationDate', expirationDate.toString());
-        setCurrentUser(response.data);
+        setCurrentUser(response.data.result.name);
         setLoading(false);
         setError(null);
-
-        checkAuthTimeout(response.data.expiresIn);
+        checkAuthTimeout(response.data.result.expiresIn);
+        history('/');
       } catch (error) {
-        console.log(error);
         setLoading(false);
-        let err = error;
-        let errorRes = err.response?.data ? err.response?.data : null;
+        let newError = error.response.data.errors.flatMap(
+          (item) => item.message
+        );
 
-        setError(errorRes);
+        setError(newError);
+        alert(newError);
       }
     },
     [checkAuthTimeout, history, axios]
+  );
+
+  const signin = useCallback(
+    async (name, email, password) => {
+      setLoading(true);
+      try {
+        const response = await axios.post('/auth/signin', {
+          name: name,
+          email: email,
+          password: password,
+          roleId: 2,
+        });
+        console.log(response.data);
+        setLoading(false);
+        setError(null);
+        history('/login');
+      } catch (error) {
+        console.log(error);
+        setLoading(false);
+        let newError = error.response.data.errors.flatMap(
+          (item) => item.message
+        );
+
+        setError(newError);
+        alert(newError);
+      }
+    },
+    [history, axios]
   );
 
   const authCheckState = useCallback(() => {
     const stringData = localStorage.getItem('authData');
     const authData = JSON.parse(String(stringData));
     console.log(authData);
-    if (!authData?.token) {
+    if (!authData) {
       logout();
     } else {
       const expirationDate = new Date(
@@ -124,7 +148,17 @@ function useProvideAuth() {
       error,
       login,
       logout,
+      signin,
       authCheckState,
     };
-  }, [currentUser, loading, hiddenMenu, error, login, logout, authCheckState]);
+  }, [
+    currentUser,
+    loading,
+    hiddenMenu,
+    error,
+    login,
+    logout,
+    signin,
+    authCheckState,
+  ]);
 }

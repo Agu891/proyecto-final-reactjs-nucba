@@ -17,8 +17,8 @@ export function AxiosProvider({ children }) {
       const data = localStorage.getItem('authData') || null;
       const authData = data ? JSON.parse(data) : null;
 
-      if (authData?.token) {
-        config.headers.Authorization = `Bearer ${authData.token}`;
+      if (authData?.result.token) {
+        config.headers.Authorization = `Bearer ${authData.result.token}`;
       }
       return config;
     });

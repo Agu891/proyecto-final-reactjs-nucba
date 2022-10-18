@@ -8,8 +8,9 @@ import {
 import { useDispatch } from 'react-redux';
 import * as cartActions from '../../redux/cart/cart-actions';
 import { Link } from 'react-router-dom';
-
+import { useAuth } from '../../context/AuthContext';
 import { useSelector } from 'react-redux';
+
 import {
   BurguerSpan,
   Carrito,
@@ -26,7 +27,8 @@ import {
 } from './NavbarElements';
 
 const Navbar = ({ setSection }) => {
-  const currentUser = '';
+  const { currentUser, logout } = useAuth();
+
   const quantity = useSelector((state) =>
     state.cart.cartItems.reduce((acc, cartItem) => {
       return acc + cartItem.quantity;
@@ -56,13 +58,9 @@ const Navbar = ({ setSection }) => {
               <>
                 <UserNameContainer>
                   <p> Bienvenido, </p>
-                  <UserName>
-                    {currentUser.displayName
-                      ? currentUser.displayName
-                      : currentUser.email}
-                  </UserName>
+                  <UserName>{currentUser ? currentUser : ''}</UserName>
                 </UserNameContainer>
-                <li onClick={() => console.log('armar logout')}>Logout</li>
+                <li onClick={() => logout()}>Logout</li>
               </>
             ) : (
               <>

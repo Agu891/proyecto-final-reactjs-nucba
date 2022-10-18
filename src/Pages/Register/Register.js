@@ -1,62 +1,31 @@
-import React from 'react';
-import useForm from '../../hooks/useForm';
+import React, { useState } from 'react';
 
 import HeaderSimple from '../../components/HeaderSimple/HeaderSimple';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Input, Spinner } from '@chakra-ui/react';
-import { useSelector } from 'react-redux';
+import { Input, Spinner, useToast } from '@chakra-ui/react';
+
+import { useAuth } from '../../context/AuthContext';
 
 import {
-  VALIDATOR_EMAIL,
-  VALIDATOR_MINLENGTH,
-  VALIDATOR_REQUIRE,
-} from '../../utils/validators';
-import {
   FormWrapper,
-  InvalidBtn,
   ValidBtn,
   WrapperGral,
   WrapperTexto,
 } from '../login/LoginElements';
 import Footer from '../../components/Footer/Footer';
 const Register = () => {
-  const currentUser = useSelector((state) => state.user.currentUser);
-  const navigate = useNavigate();
-  const [formState, inputHandler] = useForm(
-    {
-      nombre: {
-        value: '',
-        isValid: false,
-      },
-      apellido: {
-        value: '',
-        isValid: false,
-      },
-      email: {
-        value: '',
-        isValid: false,
-      },
-      displayName: {
-        value: '',
-        isValid: false,
-      },
-      password: {
-        value: '',
-        isValid: false,
-      },
-    },
-    false
-  );
-  if (currentUser) {
-    navigate('/');
-  }
+  const toast = useToast();
+  const [email, setEmail] = useState('');
+  const [pwd, setPwd] = useState('');
+  const [name, setName] = useState('');
+  const { signin, loading } = useAuth('');
 
   return (
     <>
       <HeaderSimple />
-      <FormWrapper onSubmit={() => console.log('ARMAR SUBMIT REGISTER')}>
+      <FormWrapper>
         <WrapperGral>
           <p>
             Inicio <FontAwesomeIcon icon={faAngleRight} /> MiCuenta
@@ -71,6 +40,8 @@ const Register = () => {
               id="nombre"
               label="Nombre"
               type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               placeholder="ej:. Juan"
             />
           </WrapperTexto>
@@ -82,7 +53,8 @@ const Register = () => {
               id="email"
               label="Email"
               type="email"
-              onInput={inputHandler}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="ej:. JuanR@mail.com"
             />
           </WrapperTexto>
@@ -94,11 +66,16 @@ const Register = () => {
               id="password"
               label="Contraseña"
               type="password"
-              onInput={inputHandler}
+              value={pwd}
+              onChange={(e) => setPwd(e.target.value)}
             />
           </WrapperTexto>
 
-          <ValidBtn>Registrarse</ValidBtn>
+          <ValidBtn
+            onClick={(e) => [e.preventDefault(), signin(name, email, pwd)]}
+          >
+            {loading ? <Spinner /> : 'Registrarse'}
+          </ValidBtn>
 
           <Link to="/login">
             <p>¿Ya tenes una cuenta? INICIÁ SESIÓN</p>
