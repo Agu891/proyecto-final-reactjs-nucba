@@ -1,13 +1,16 @@
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-##  Usuarios y tarjetas de prueba
-  # usuario prueba Mercado Pagos
-        usuario:TESTOIJCFBDN  
+
+## Usuarios y tarjetas de prueba
+
+### usuario prueba Mercado Pagos
+
+        usuario:TESTOIJCFBDN
         contraseña : 5fekQXuR3Y
 
+### tarjeta visa
 
-  # tarjeta visa 
         nombre : APRO
         documento:  12345678
         numero:  4509 9535 6623 3704
