@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import Footer from '../../components/Footer/Footer';
 import HeaderSimple from '../../components/HeaderSimple/HeaderSimple';
-import * as cartActions from '../../redux/cart/cart-actions';
-import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import {
   Input,
@@ -27,10 +25,7 @@ import {
 
 const CheckoutPage = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const dispatch = useDispatch();
-  const clearCart = () => {
-    dispatch(cartActions.clearCart());
-  };
+
   const [address, setAddress] = useState('');
   const [location, setLocation] = useState('');
   const { createOrder, initpoint } = useCreateOrder();
@@ -100,15 +95,15 @@ const CheckoutPage = () => {
           <Modal isOpen={isOpen} onClose={onClose}>
             <ModalOverlay />
             <ModalContent>
-              <ModalHeader fontSize="5xl">
+              <ModalHeader fontSize="3xl">
                 Verifica bien los datos antes de proceder
               </ModalHeader>
               <ModalCloseButton />
               <ModalBody>
-                <Text fontSize="3xl">Dirección: {address}</Text>
-                <Text fontSize="3xl">Localidad: {location}</Text>
-                <Text fontSize="2xl">Productos: {itemReduce}</Text>
-                <Text fontSize="3xl">Subtotal: ${subTotal}</Text>
+                <Text fontSize="2xl">Dirección: {address}</Text>
+                <Text fontSize="2xl">Localidad: {location}</Text>
+                <Text fontSize="xl">Productos: {itemReduce}</Text>
+                <Text fontSize="2xl">Subtotal: ${subTotal}</Text>
               </ModalBody>
 
               <ModalFooter>

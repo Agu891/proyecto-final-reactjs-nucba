@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 
 import HeaderSimple from '../../components/HeaderSimple/HeaderSimple';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Input, Spinner, useToast } from '@chakra-ui/react';
+import { Input, Spinner } from '@chakra-ui/react';
 
 import { useAuth } from '../../context/AuthContext';
 
@@ -16,7 +16,6 @@ import {
 } from '../login/LoginElements';
 import Footer from '../../components/Footer/Footer';
 const Register = () => {
-  const toast = useToast();
   const [email, setEmail] = useState('');
   const [pwd, setPwd] = useState('');
   const [name, setName] = useState('');
