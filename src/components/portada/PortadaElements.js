@@ -47,6 +47,7 @@ export const WrapperTitulo = styled.div`
   span {
     text-transform: uppercase;
     color: aqua;
+    font-weight: 600;
     padding: var(--margingral);
   }
 `;
