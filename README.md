@@ -1,3 +1,15 @@
+# PCGeeks
+Un E-commerce desarrollado como proyecto final de la cursada de Nucba. 
+#Branches
+En el main branch se encuentra la aplicacion desarrollada con firebase como DB
+En el integracion-node-api se encuentra la aplicacion desarrollada, con una API desarrollada por mi y deployada en Heroku.
+
+#Tecnologias utilizadas en el proyecto
+
+React.js || Styled Components || React Redux || React Query || Axios || Firebase ||  UUID || Chakra  UI || Heroku
+ 
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
