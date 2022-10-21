@@ -1,8 +1,11 @@
 # PCGeeks
 Un E-commerce desarrollado como proyecto final de la cursada de Nucba. 
-## Branches
+## Branches && Deploy
 En el main branch se encuentra la aplicacion desarrollada con firebase como DB
+Deploy: https://proyecto-final-reactjs-nucba.vercel.app/
+
 En el integracion-node-api se encuentra la aplicacion desarrollada, con una API desarrollada por mi y deployada en Heroku.
+Deploy: https://proyecto-final-reactjs-nucba-git-integracion-node-api-agu891.vercel.app/
 
 ## Tecnologias utilizadas en el proyecto
 
