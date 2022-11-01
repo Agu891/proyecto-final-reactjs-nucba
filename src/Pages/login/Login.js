@@ -17,7 +17,7 @@ import {
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { loading, login, error } = useAuth();
+  const { loading, login } = useAuth();
 
   return (
     <>

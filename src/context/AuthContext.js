@@ -7,7 +7,7 @@ import React, {
   useCallback,
   useMemo,
 } from 'react';
-
+import { useToast } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import { useAxios } from '../context/AxiosContext';
 
@@ -33,6 +33,7 @@ export const useAuth = () => {
 };
 
 function useProvideAuth() {
+  const toast = useToast();
   const history = useNavigate();
   const axios = useAxios();
   const [currentUser, setCurrentUser] = useState(null);
@@ -62,6 +63,7 @@ function useProvideAuth() {
   const login = useCallback(
     async (email, password) => {
       setLoading(true);
+
       try {
         const response = await axios.post('/auth/login', {
           email: email,
@@ -84,11 +86,17 @@ function useProvideAuth() {
           (item) => item.message
         );
 
-        setError(newError);
-        alert(newError);
+        setError(newError.join(' '));
+        toast({
+          title: 'Login Error',
+          description: newError.join(', '),
+          status: 'error',
+          duration: 2000,
+          isClosable: true,
+        });
       }
     },
-    [checkAuthTimeout, history, axios]
+    [checkAuthTimeout, history, axios, toast]
   );
 
   const signin = useCallback(
@@ -102,21 +110,26 @@ function useProvideAuth() {
           roleId: 2,
         });
         console.log(response.data);
+        setCurrentUser(response.data.result.name);
         setLoading(false);
         setError(null);
-        history('/login');
+        history('/');
       } catch (error) {
         console.log(error);
         setLoading(false);
-        let newError = error.response.data.errors.flatMap(
-          (item) => item.message
-        );
+        let newError = error.response.data.errors.map((item) => item.message);
 
         setError(newError);
-        alert(newError);
+        toast({
+          title: 'Register Error',
+          description: newError.join(', '),
+          status: 'error',
+          duration: 2000,
+          isClosable: true,
+        });
       }
     },
-    [history, axios]
+    [history, axios, toast]
   );
 
   const authCheckState = useCallback(() => {

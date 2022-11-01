@@ -41,7 +41,7 @@ const Register = () => {
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="ej:. Juan"
+              placeholder="Ingrese su nombre"
             />
           </WrapperTexto>
 
@@ -54,7 +54,7 @@ const Register = () => {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="ej:. JuanR@mail.com"
+              placeholder="Ingrese su email"
             />
           </WrapperTexto>
 
