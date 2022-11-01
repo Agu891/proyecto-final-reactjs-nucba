@@ -63,7 +63,7 @@ const CheckoutPage = () => {
               type="text"
               value={address}
               onChange={(e) => setAddress(e.target.value)}
-              placeholder="ej:. Juan Alberdi 1234"
+              placeholder="Ingresa la direccion de la entrega"
             />
             <Input
               element="input"
@@ -72,7 +72,7 @@ const CheckoutPage = () => {
               type="text"
               value={location}
               onChange={(e) => setLocation(e.target.value)}
-              placeholder="ej:. La Plata"
+              placeholder="Elegi  tu ciudad de residencia actual "
             />
             {}
             <ValidBtn

@@ -109,10 +109,16 @@ function useProvideAuth() {
           password: password,
           roleId: 2,
         });
-        console.log(response.data);
+        const expirationDate = new Date(
+          new Date().getTime() + response.data.result.expiresIn
+        ).getTime();
+        console.log('expirationDate', expirationDate);
+        localStorage.setItem('authData', JSON.stringify(response.data));
+        localStorage.setItem('expirationDate', expirationDate.toString());
         setCurrentUser(response.data.result.name);
         setLoading(false);
         setError(null);
+        checkAuthTimeout(response.data.result.expiresIn);
         history('/');
       } catch (error) {
         console.log(error);
