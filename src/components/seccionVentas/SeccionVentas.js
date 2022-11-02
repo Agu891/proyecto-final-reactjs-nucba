@@ -77,7 +77,7 @@ const SeccionVentas = ({ section, setSection }) => {
       </SeccionVentasWrapper>
     ));
   } else if (isError) {
-    console.log('error al cargar servidor');
+    <h2> Hubo un error al cargar la pagina! </h2>;
   }
 };
 

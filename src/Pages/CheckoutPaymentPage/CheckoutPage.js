@@ -46,7 +46,6 @@ const CheckoutPage = () => {
   const subTotal = cartItems.reduce((acc, item) => {
     return acc + item.price * item.quantity;
   }, 0);
-  console.log(initpoint);
 
   return (
     <>

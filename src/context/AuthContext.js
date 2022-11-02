@@ -51,10 +51,8 @@ function useProvideAuth() {
 
   const checkAuthTimeout = useCallback(
     (expirationTime) => {
-      console.log('checkAuthTimeout ->', new Date(expirationTime));
       setTimeout(() => {
         logout();
-        console.log('checkAuthTimeout -> Run Auto logout');
       }, expirationTime);
     },
     [logout]
@@ -72,7 +70,7 @@ function useProvideAuth() {
         const expirationDate = new Date(
           new Date().getTime() + response.data.result.expiresIn
         ).getTime();
-        console.log('expirationDate', expirationDate);
+
         localStorage.setItem('authData', JSON.stringify(response.data));
         localStorage.setItem('expirationDate', expirationDate.toString());
         setCurrentUser(response.data.result.name);
@@ -112,7 +110,6 @@ function useProvideAuth() {
         const expirationDate = new Date(
           new Date().getTime() + response.data.result.expiresIn
         ).getTime();
-        console.log('expirationDate', expirationDate);
         localStorage.setItem('authData', JSON.stringify(response.data));
         localStorage.setItem('expirationDate', expirationDate.toString());
         setCurrentUser(response.data.result.name);
@@ -121,10 +118,8 @@ function useProvideAuth() {
         checkAuthTimeout(response.data.result.expiresIn);
         history('/');
       } catch (error) {
-        console.log(error);
         setLoading(false);
         let newError = error.response.data.errors.map((item) => item.message);
-
         setError(newError);
         toast({
           title: 'Register Error',
@@ -135,13 +130,12 @@ function useProvideAuth() {
         });
       }
     },
-    [history, axios, toast]
+    [history, axios, toast, checkAuthTimeout]
   );
 
   const authCheckState = useCallback(() => {
     const stringData = localStorage.getItem('authData');
     const authData = JSON.parse(String(stringData));
-    console.log(authData);
     if (!authData) {
       logout();
     } else {
