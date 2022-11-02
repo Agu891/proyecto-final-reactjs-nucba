@@ -134,15 +134,16 @@ export const Menu = styled.ul`
   display: grid;
   flex-direction: column;
   grid-template-rows: 50px 50px 50px 50px 50px 50px;
-  width: 55px;
-  padding: 450px 150px 0px 100px;
+
+  grid-template-columns: 120px;
+  padding: 400px 60px 0px 95px;
   background-color: #303030;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   -webkit-transform-origin: 0% 0%;
   transform-origin: 0% 0%;
-  -webkit-transform: translate(-100%, 0);
-  transform: translate(-105%, 0);
+  -webkit-transform: translate(-140%, 0);
+  transform: translate(-200%, 0);
   -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
   transition: -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
@@ -151,6 +152,8 @@ export const Menu = styled.ul`
   z-index: 1;
   @media screen and (min-width: 769px) {
     grid-template-rows: 70px 50px 50px 50px 50px 50px 50px;
+    padding: 450px 150px 0px 100px;
+    grid-template-columns: 0px;
   }
   li {
     display: flex;
@@ -249,7 +252,8 @@ export const Componentes = styled.li`
     background-color: #cdcdcd;
     display: grid;
     grid-template-rows: 5vh 5vh 5vh 5vh 5vh 5vh;
-    width: 150px;
+
+    width: 100px;
     height: 0;
     -webkit-transform: scaleY(0);
     transform: scaleY(0);
@@ -272,10 +276,11 @@ export const Componentes = styled.li`
     list-style-type: none;
     font-size: 0.7rem;
     margin: 0px;
-
+    width: 100px;
     @media screen and (min-width: 769px) {
       font-size: 0.9rem;
       padding-bottom: 32px;
+      width: 120px;
     }
   }
   #flechita {
