@@ -68,11 +68,11 @@ export const TextWrapper = styled.div`
   font-family: var(--fontfamily);
   text-align: center;
   h3 {
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: 500;
   }
   p {
-    font-size: 0.8rem;
+    font-size: 1.5rem;
   }
   b {
     color: blue;
