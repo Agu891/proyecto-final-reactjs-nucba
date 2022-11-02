@@ -44,8 +44,9 @@ export const WrapperTexto = styled.div`
   height: 100%;
 
   @media screen and (min-width: 769px) {
-    grid-template-rows: 150px;
+    grid-template-rows: 90px;
     grid-template-columns: 450px;
+    gap: 0px;
   }
   label {
     align-self: flex-start;
