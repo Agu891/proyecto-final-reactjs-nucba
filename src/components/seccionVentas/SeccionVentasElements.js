@@ -59,7 +59,7 @@ export const TextWrapper = styled.div`
   display: -webkit-box;
   display: -ms-flexbox;
   display: grid;
-  grid-template-rows: 60px 40px 40px;
+  grid-template-rows: 50px 40px 40px;
   gap: 5px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -70,6 +70,9 @@ export const TextWrapper = styled.div`
   h3 {
     font-size: 1rem;
     font-weight: 500;
+    @media screen and (min-width: 769px) {
+      font-size: 1.2rem;
+    }
   }
   p {
     font-size: 1.5rem;
