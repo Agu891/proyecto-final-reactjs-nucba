@@ -60,6 +60,7 @@ export const TextWrapper = styled.div`
   display: -ms-flexbox;
   display: grid;
   grid-template-rows: 60px 40px 40px;
+  gap: 5px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
