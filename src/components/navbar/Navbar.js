@@ -66,7 +66,7 @@ const Navbar = ({ setSection }) => {
             ) : (
               <>
                 <Link to="/login">
-                  <li id="registrarse">Iniciar Sesion</li>
+                  <li id="registrarse">Ingresar</li>
                 </Link>
                 <Link to="/register">
                   <li id="iniciarSesion">Registrarse</li>

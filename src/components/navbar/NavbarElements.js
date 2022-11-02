@@ -157,16 +157,15 @@ export const Menu = styled.ul`
   }
   li {
     display: flex;
-    padding-left: 5px;
+    padding-left: 15px;
+    width: 100%;
     padding-top: 15px;
     font-size: 1.1rem;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 600;
     position: relative;
-    width: 100%;
     display: flex;
-    text-overflow: ellipsis;
     cursor: pointer;
     margin-bottom: 15px;
   }
