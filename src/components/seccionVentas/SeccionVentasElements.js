@@ -72,7 +72,7 @@ export const TextWrapper = styled.div`
     font-weight: 500;
   }
   p {
-    font-size: 1.5rem;
+    font-size: 0.8rem;
   }
   b {
     color: blue;
