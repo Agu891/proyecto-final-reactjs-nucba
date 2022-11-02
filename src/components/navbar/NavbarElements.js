@@ -134,7 +134,6 @@ export const Menu = styled.ul`
   display: grid;
   flex-direction: column;
   grid-template-rows: 50px 50px 50px 50px 50px 50px;
-
   grid-template-columns: 120px;
   padding: 400px 60px 0px 95px;
   background-color: #303030;
@@ -212,6 +211,7 @@ export const UserNameContainer = styled.li`
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  height: 100%;
 `;
 const animation = keyframes`
  from {
