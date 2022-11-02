@@ -153,7 +153,7 @@ export const Menu = styled.ul`
   @media screen and (min-width: 769px) {
     grid-template-rows: 70px 50px 50px 50px 50px 50px 50px;
     padding: 450px 150px 0px 100px;
-    grid-template-columns: 0px;
+    grid-template-columns: 15px;
   }
   li {
     display: flex;
@@ -266,6 +266,7 @@ export const Componentes = styled.li`
 
     @media screen and (min-width: 769px) {
       grid-template-rows: 48px 48px 48px 48px 48px 48px;
+      padding-left: 15px;
     }
   }
   ul li {
