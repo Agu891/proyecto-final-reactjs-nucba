@@ -36,15 +36,12 @@ export const WrapperGral = styled.div`
 
 export const WrapperTexto = styled.div`
   display: grid;
-  grid-template-rows: 40px 20px 50px 20px 50px 10px 10px 50px;
+  grid-template-rows: 50px;
   grid-template-columns: 300px;
-
-  gap: 25px;
   width: 100%;
   height: 100%;
-
   @media screen and (min-width: 769px) {
-    grid-template-rows: 150px;
+    grid-template-rows: 80px;
     grid-template-columns: 450px;
   }
   label {

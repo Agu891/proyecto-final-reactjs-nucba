@@ -10,10 +10,10 @@ import { useAuth } from '../../context/AuthContext';
 
 import {
   FormWrapper,
-  ValidBtn,
   WrapperGral,
   WrapperTexto,
-} from '../login/LoginElements';
+  ValidBtn,
+} from '../Register/RegisterElements';
 import Footer from '../../components/Footer/Footer';
 const Register = () => {
   const [email, setEmail] = useState('');
@@ -43,9 +43,7 @@ const Register = () => {
               onChange={(e) => setName(e.target.value)}
               placeholder="Ingrese su nombre"
             />
-          </WrapperTexto>
 
-          <WrapperTexto justify="center">
             <label for="email">Email</label>
             <Input
               element="input"
@@ -56,9 +54,7 @@ const Register = () => {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Ingrese su email"
             />
-          </WrapperTexto>
 
-          <WrapperTexto justify="center">
             <label for="password">Password</label>
             <Input
               element="input"
@@ -68,17 +64,17 @@ const Register = () => {
               value={pwd}
               onChange={(e) => setPwd(e.target.value)}
             />
+
+            <ValidBtn
+              onClick={(e) => [e.preventDefault(), signin(name, email, pwd)]}
+            >
+              {loading ? <Spinner /> : 'Registrarse'}
+            </ValidBtn>
+
+            <Link to="/login">
+              <p>¿Ya tenes una cuenta? INICIÁ SESIÓN</p>
+            </Link>
           </WrapperTexto>
-
-          <ValidBtn
-            onClick={(e) => [e.preventDefault(), signin(name, email, pwd)]}
-          >
-            {loading ? <Spinner /> : 'Registrarse'}
-          </ValidBtn>
-
-          <Link to="/login">
-            <p>¿Ya tenes una cuenta? INICIÁ SESIÓN</p>
-          </Link>
         </WrapperGral>
       </FormWrapper>
       <Footer margin="300px" />

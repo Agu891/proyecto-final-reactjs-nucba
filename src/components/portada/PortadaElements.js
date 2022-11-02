@@ -50,6 +50,9 @@ export const WrapperTitulo = styled.div`
     font-weight: 600;
     padding: var(--margingral);
   }
+  p {
+    padding-left: 20px;
+  }
 `;
 
 export const H2Portada = styled.h2`
