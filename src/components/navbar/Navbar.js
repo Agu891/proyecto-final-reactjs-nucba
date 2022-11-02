@@ -58,8 +58,9 @@ const Navbar = ({ setSection }) => {
             {currentUser ? (
               <>
                 <UserNameContainer>
-                  <p> Bienvenido, </p>
-                  <UserName>{currentUser ? currentUser : ''}</UserName>
+                  <UserName>
+                    {currentUser ? `Bienvenido ${currentUser}` : ''}
+                  </UserName>
                 </UserNameContainer>
                 <li onClick={() => logout()}>Logout</li>
               </>
