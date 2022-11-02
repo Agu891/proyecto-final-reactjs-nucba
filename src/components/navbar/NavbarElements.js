@@ -131,8 +131,9 @@ export const BurguerSpan = styled.span`
 `;
 
 export const Menu = styled.ul`
-  display: flex;
+  display: grid;
   flex-direction: column;
+  grid-template-rows: 50px 50px 50px 50px 50px 50px;
   width: 55px;
   padding: 450px 150px 0px 100px;
   background-color: #303030;
@@ -148,7 +149,9 @@ export const Menu = styled.ul`
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
     -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
   z-index: 1;
-
+  @media screen and (min-width: 769px) {
+    grid-template-rows: 70px 50px 50px 50px 50px 50px 50px;
+  }
   li {
     display: flex;
     padding-left: 5px;
@@ -163,10 +166,8 @@ export const Menu = styled.ul`
     text-overflow: ellipsis;
     cursor: pointer;
     margin-bottom: 15px;
-    
-    
   }
-   a  {
+  a {
     display: flex;
     font-size: 1.1rem;
     color: white;
@@ -177,8 +178,7 @@ export const Menu = styled.ul`
     display: flex;
     text-overflow: ellipsis;
     cursor: pointer;
-    
-   }
+  }
 
   @media screen and (min-width: 769px) {
     -webkit-transform: none;
@@ -186,7 +186,7 @@ export const Menu = styled.ul`
     position: fixed;
     padding-bottom: 620px;
     margin-bottom: 97px;
-    margin-top: 350px;G
+    margin-top: 350px;
     -webkit-transform-origin: none;
     transform-origin: none;
     -webkit-transform: translate(0, 0);
@@ -202,8 +202,7 @@ export const LogoQuery = styled.h1`
     display: -ms-flexbox;
     display: flex;
     color: white;
-    margin-bottom: 70px;
-    padding-top: 150px;
+
     font-size: 1.5rem;
   }
 `;
@@ -245,7 +244,11 @@ export const Componentes = styled.li`
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
+
   ul {
+    background-color: #cdcdcd;
+    display: grid;
+    grid-template-rows: 5vh 5vh 5vh 5vh 5vh 5vh;
     width: 150px;
     height: 0;
     -webkit-transform: scaleY(0);
@@ -255,18 +258,25 @@ export const Componentes = styled.li`
     -webkit-transform-origin: top;
     transform-origin: top;
     z-index: 2;
-    margin-bottom: 33px;
-    padding-left: 15px;
-    background-color: #cdcdcd;
+    margin-bottom: 45px;
+    padding-left: 12px;
+
+    @media screen and (min-width: 769px) {
+      grid-template-rows: 48px 48px 48px 48px 48px 48px;
+    }
   }
   ul li {
     background-color: #303030;
+    height: 50px;
     position: inherit;
     list-style-type: none;
     font-size: 0.7rem;
     margin: 0px;
-    display: flex;
-    max-width: 100px;
+
+    @media screen and (min-width: 769px) {
+      font-size: 0.9rem;
+      padding-bottom: 32px;
+    }
   }
   #flechita {
     margin-left: 5px;

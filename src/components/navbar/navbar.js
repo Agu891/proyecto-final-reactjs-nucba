@@ -51,6 +51,7 @@ const Navbar = ({ setSection }) => {
           <BurguerSpan margin="-10px" />
           <BurguerSpan margin="7px" />
           <BurguerSpan margin="23px" />
+
           <Menu>
             <LogoQuery>PcGeeks</LogoQuery>
             <li>Inicio</li>
@@ -73,9 +74,7 @@ const Navbar = ({ setSection }) => {
               </>
             )}
 
-            <li onClick={() => sectionHandler('Destacados')}>
-              Destacados y Ofertas
-            </li>
+            <li onClick={() => sectionHandler('Destacados')}>Destacados</li>
             <Componentes>
               <CheckboxComponentes type="checkbox" /> Componentes
               <FontAwesomeIcon id="flechita" icon={faAngleRight} />

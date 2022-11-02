@@ -58,7 +58,8 @@ export const TextWrapper = styled.div`
   margin-right: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex;
+  display: grid;
+  grid-template-rows: 60px 40px 40px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;

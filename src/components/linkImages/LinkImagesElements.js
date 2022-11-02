@@ -70,7 +70,7 @@ export const BoxImgs = styled.div`
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-
+    padding-left: 5px;
     font-size: 0.9rem;
     color: white;
     text-align: start;

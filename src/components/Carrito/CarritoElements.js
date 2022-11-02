@@ -27,6 +27,7 @@ export const Items = styled.div`
   grid-template-columns: 55px 15px 12px 15px 120px 95px;
   justify-content: space-between;
   align-items: center;
+  padding-left: 5px;
   font-family: var(--fontfamily);
   font-weight: 500;
   font-size: 0.8rem;
