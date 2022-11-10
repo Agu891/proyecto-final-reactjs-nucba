@@ -16,7 +16,7 @@ const Marcas = () => {
         <img src={logoAsus} alt="logo ASUS" />
         <img src={logoATI} alt="logo ATI" />
         <img src={logoCorsair} alt="corsair logo" />
-        <img src={logoNvidia} alt="logo nvidia" />
+        <img src={logoNvidia} id="logoNvidia" alt="logo nvidia" />
         <img src={logoIntel} alt="logo intel" />
       </ImgMarcasWrapper>
     </BoxLogos>

@@ -20,7 +20,7 @@ export const TituloMarcas = styled.h2`
   font-family: var(--fontfamilydestacados);
   font-size: 2rem;
   font-weight: 500;
-  text-align: start;
+  text-align: center;
   padding-left: 15px;
 `;
 
@@ -45,6 +45,10 @@ export const ImgMarcasWrapper = styled.div`
     display: -ms-flexbox;
     display: flex;
     width: 100vw;
+    align-self: center;
     max-width: 125px;
+  }
+  #logoNvidia {
+    padding-left: 17px;
   }
 `;
