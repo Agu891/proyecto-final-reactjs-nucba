@@ -48,15 +48,22 @@ export const MenuToggle = styled.div`
   z-index: 2;
   width: 8%;
   height: 5%;
-  ul li a {
-    color: white;
-    -webkit-transition: color 0.3s ease;
-    transition: color 0.3s ease;
-    font-family: var(--fontfamily);
+  ul {
+    li {
+      width: 150px;
+      a {
+        color: white;
+        -webkit-transition: color 0.3s ease;
+        transition: color 0.3s ease;
+        font-family: var(--fontfamily);
+      }
+    }
+    @media screen and (min-width: 769px) {
+      height: 1800px;
+      padding-top: 635px;
+    }
   }
-  ul li {
-    width: 150px;
-  }
+
   span:first-child {
     -webkit-transform-origin: 0% 0%;
     transform-origin: 0% 0%;
@@ -66,7 +73,7 @@ export const MenuToggle = styled.div`
     transform-origin: 0% 100%;
   }
   @media screen and (min-width: 769px) {
-    width: 168px;
+    width: 155px;
     padding-top: 250px;
   }
 `;
