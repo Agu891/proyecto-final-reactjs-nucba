@@ -5,7 +5,7 @@ import HeaderSimple from '../../components/HeaderSimple/HeaderSimple';
 import Footer from '../../components/Footer/Footer';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { ValidBtn } from '../login/LoginElements';
+import { ValidBtn, WrapperTexto } from '../login/LoginElements';
 import {
   InputContacto,
   WrapperContacto,
@@ -29,15 +29,17 @@ const Contacto = () => {
           <span>Visita nuestro canal de Youtube!</span>
         </WrapperTextoContacto>
         <form>
-          <label for="nombre">Nombre</label>
-          <InputContacto type="text" value="" name="nombre" />
-          <label for="Email">Email</label>
-          <InputContacto type="text" value="" name="email" />
-          <label for="nombre">Telefono</label>
-          <InputContacto type="text" value="" />
-          <label for="nombre">Mensaje</label>
-          <textarea name="" id="textarea" cols="50" rows="5"></textarea>
-          <ValidBtn> Enviar </ValidBtn>
+          <WrapperTexto>
+            <label for="nombre">Nombre</label>
+            <InputContacto type="text" value="" name="nombre" />
+            <label for="Email">Email</label>
+            <InputContacto type="text" value="" name="email" />
+            <label for="nombre">Telefono</label>
+            <InputContacto type="text" value="" />
+            <label for="nombre">Mensaje</label>
+            <textarea name="" id="textarea" cols="50" rows="5"></textarea>
+            <ValidBtn> Enviar </ValidBtn>
+          </WrapperTexto>
         </form>
       </WrapperContacto>
       <Footer margin="5%" />

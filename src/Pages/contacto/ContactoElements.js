@@ -7,75 +7,34 @@ export const WrapperContacto = styled.div`
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  flex-direction: column;
+  div {
+    margin-top: 25px;
+    padding-left: 10px;
+    grid-template-rows: 30px 50px 30px 50px 30px 50px 30px 250px 50px;
+    gap: 15px;
+    grid-template-columns: 300px;
+  }
   form {
-    width: 70%;
-    justify-self: flex-start;
-    padding-top: 7%;
-    padding-left: 15px;
-   
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: grid;
-    grid-template-columns: 250px
-    grid-template-rows: 40px 40px 40px 40px 40px 40px 40px 250px 40px;
-    gap: 20px;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-   
-  }
-
-  label {
-    font-family: var(--fontfamily);
-    text-transform: uppercase;
-    margin-bottom: 15px;
-  }
-  input {
-    border: 1px solid grey;
-    border-radius: 15px;
-    width: 50%;
-    padding: 15px;
-    margin-bottom: 15px;
+    width: 80%;
   }
   textarea {
     border: 1px solid grey;
-    border-radius: 15px;
-    width: 50%;
-    padding: 15px;
-    margin-bottom: 15px;
+    border-radius: 12px;
   }
-  button {
-    width: 48%;
-    align-self: flex-start;
-    justify-self:  flex-start;
-        
-  }
-
-  @media screen and (max-width: 1023px) {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    div {
+      grid-template-rows: 30px 50px 30px 50px 30px 50px 30px 250px 50px;
+      gap: 15px;
+      grid-template-columns: 450px;
+    }
     form {
-      margin-top: 15%;
-      width: 100vw;
-      margin-right: 0;
-      -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-    }
-    input {
       width: 80%;
-    }
-    button {
-      width: 90%;
     }
     textarea {
-      width: 80%;
+      border: 1px solid grey;
+      border-radius: 12px;
     }
   }
 `;
