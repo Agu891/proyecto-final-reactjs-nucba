@@ -11,13 +11,19 @@ export const WrapperContacto = styled.div`
     width: 70%;
     justify-self: flex-start;
     padding-top: 7%;
+    padding-left: 15px;
+   
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex;
+    display: grid;
+    grid-template-columns: 250px
+    grid-template-rows: 40px 40px 40px 40px 40px 40px 40px 250px 40px;
+    gap: 20px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
+   
   }
 
   label {
@@ -40,9 +46,10 @@ export const WrapperContacto = styled.div`
     margin-bottom: 15px;
   }
   button {
-    width: 50%;
-    margin-left: 1.5%;
-    padding: 25px;
+    width: 48%;
+    align-self: flex-start;
+    justify-self:  flex-start;
+        
   }
 
   @media screen and (max-width: 1023px) {
