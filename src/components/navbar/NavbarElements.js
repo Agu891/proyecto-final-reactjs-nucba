@@ -274,6 +274,7 @@ export const Componentes = styled.li`
     @media screen and (min-width: 769px) {
       grid-template-rows: 48px 48px 48px 48px 48px 48px;
       padding-left: 15px;
+      padding-top: 0px;
     }
   }
   ul li {
