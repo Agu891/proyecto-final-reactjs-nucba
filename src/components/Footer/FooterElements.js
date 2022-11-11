@@ -13,6 +13,7 @@ export const FooterWrapper = styled.div`
   padding-top: 15px;
   background-color: white;
   margin-top: ${(props) => props.margin};
+
   a {
     text-decoration: none;
   }
@@ -26,7 +27,11 @@ export const LinkWrapper = styled.div`
   -ms-flex-direction: column;
   flex-direction: column;
 `;
+export const ImgTarjetas = styled.img`
+  display: flex;
 
+  padding-right: 155px;
+`;
 export const Pstyled = styled.p`
   display: -webkit-box;
   display: -ms-flexbox;

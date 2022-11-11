@@ -24,6 +24,7 @@ import {
   NavBarPrincipal,
   UserName,
   UserNameContainer,
+  RedesLi,
 } from './NavbarElements';
 
 const Navbar = ({ setSection }) => {

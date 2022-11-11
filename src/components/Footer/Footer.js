@@ -16,6 +16,7 @@ import {
   Redes,
   ListaContacto,
   Derechos,
+  ImgTarjetas,
 } from './FooterElements';
 const Footer = (props) => {
   return (
@@ -31,8 +32,11 @@ const Footer = (props) => {
             <Pstyled>Contacto</Pstyled>
           </Link>
         </LinkWrapper>
+        <ImgTarjetas
+          src="https://res.cloudinary.com/dhfwuqzoz/image/upload/v1668180897/Products/img/iconos-de-tarjetas-de-credito-psd_aqlyrr.webp"
+          alt="tarjetas"
+        />
         <div>
-          <img src="./" alt="" />
           <InputStyled type="text" placeholder="Suscribite al newsletter..." />
         </div>
         <Redes id="redes">

@@ -6,11 +6,10 @@ import logoCorsair from './img/png-transparent-corsair-components-computer-keybo
 import logoNvidia from './img/png-transparent-graphics-cards-video-adapters-nvidia-quadro-logo-geforce-nvidia.png';
 import logoIntel from './img/png-transparent-intel-logo-fujitsu-business-technology-intel-blue-text-trademark.png';
 
-import { BoxLogos, ImgMarcasWrapper, TituloMarcas } from './MarcasElements';
+import { BoxLogos, ImgMarcasWrapper } from './MarcasElements';
 const Marcas = () => {
   return (
     <BoxLogos>
-      <TituloMarcas>Nuestras marcas</TituloMarcas>
       <ImgMarcasWrapper>
         <img src={logoAMD} alt="logo AMD" />
         <img src={logoAsus} alt="logo ASUS" />

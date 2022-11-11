@@ -14,20 +14,11 @@ export const BoxLogos = styled.div`
   }
 `;
 
-export const TituloMarcas = styled.h2`
-  color: white;
-
-  font-family: var(--fontfamilydestacados);
-  font-size: 2rem;
-  font-weight: 500;
-  text-align: center;
-  padding-left: 15px;
-  @media screen and (min-width: 769px) {
-    text-align: center;
-  }
-`;
-
 export const ImgMarcasWrapper = styled.div`
+  @media screen and (min-width: 769px) {
+    margin-left: 175px;
+    flex-direction: row;
+  }
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (minmax(120px, 1fr));

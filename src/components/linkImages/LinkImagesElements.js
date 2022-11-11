@@ -47,7 +47,7 @@ export const BoxImgs = styled.div`
   background-size: 350%;
   min-width: 200px;
   width: 250px;
-  border: none;
+  overflow: hidden;
   border-radius: 10px;
   height: 250px;
   -webkit-transition: 500ms;
